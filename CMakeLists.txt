@@ -87,17 +87,37 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE
 
 if(PLATFORM_SWITCH)
     add_custom_target(${PROJECT_NAME}.nro DEPENDS ${PROJECT_NAME}
+
         COMMAND ${NX_NACPTOOL_EXE}
             --create "XuitchTV" "${PROJECT_AUTHOR}"
             "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_PATCH}"
             ${PROJECT_NAME}.nacp
+
+        # Rebuild the RomFS resources directory from scratch.
+        COMMAND ${CMAKE_COMMAND} -E rm -rf
+            ${CMAKE_BINARY_DIR}/resources
+
+        COMMAND ${CMAKE_COMMAND} -E make_directory
+            ${CMAKE_BINARY_DIR}/resources
+
+        # Borealis runtime resources:
+        # i18n, fonts, Material Icons, base XML, etc.
         COMMAND ${CMAKE_COMMAND} -E copy_directory
-            ${PROJECT_RESOURCES} ${CMAKE_BINARY_DIR}/resources
+            ${BOREALIS_DIR}/resources
+            ${CMAKE_BINARY_DIR}/resources
+
+        # XuitchTV resources are copied second so our files take priority.
+        COMMAND ${CMAKE_COMMAND} -E copy_directory
+            ${PROJECT_RESOURCES}
+            ${CMAKE_BINARY_DIR}/resources
+
         COMMAND ${NX_ELF2NRO_EXE}
-            ${PROJECT_NAME}.elf ${PROJECT_NAME}.nro
+            ${PROJECT_NAME}.elf
+            ${PROJECT_NAME}.nro
             --icon=${PROJECT_ICON}
             --nacp=${PROJECT_NAME}.nacp
             --romfsdir=${CMAKE_BINARY_DIR}/resources
+
         VERBATIM
     )
 endif()
