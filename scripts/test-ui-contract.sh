@@ -53,4 +53,3 @@ for forbidden in ('AppConfig::', 'refreshPlaylist(', 'new PlayerActivity', 'serv
     assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.5.5 diagnostic shell'
 print('v0.5.5 IPTV diagnostic shell contract test: OK')
 PY
-

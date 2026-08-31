@@ -51,4 +51,3 @@ void MainActivity::onContentAvailable()
 }
 
 } // namespace xuitch::ui
-

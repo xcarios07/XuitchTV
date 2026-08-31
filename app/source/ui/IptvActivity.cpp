@@ -64,4 +64,3 @@ void IptvActivity::onContentAvailable()
 }
 
 } // namespace xuitch::ui
-
