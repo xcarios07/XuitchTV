@@ -62,8 +62,9 @@ docker run --rm \
     rm -rf build_switch
 
     cmake -S . -B build_switch \
-      -DPLATFORM_SWITCH=ON \
-      -DCMAKE_BUILD_TYPE=Release
+  -DPLATFORM_SWITCH=ON \
+  -DUSE_DEKO3D=ON \
+  -DCMAKE_BUILD_TYPE=Release
 
     echo "=== Building XuitchTV.nro ==="
     cmake --build build_switch \
