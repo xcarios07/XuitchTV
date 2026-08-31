@@ -10,6 +10,7 @@ public:
 
     CONTENT_FROM_XML_RES("activity/iptv.xml");
     void onContentAvailable() override;
+    void willAppear(bool resetState = false) override;
 
 private:
     brls::Box* categoryBox{nullptr};

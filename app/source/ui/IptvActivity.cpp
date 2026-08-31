@@ -54,13 +54,25 @@ void IptvActivity::onContentAvailable()
     refreshButton->registerClickAction([this](brls::View*) {
         iptvLog("[19] diagnostic refresh button pressed - network disabled");
         statusLabel->setText("Shell IPTV estable. Red/libcurl siguen desactivados.");
-        brls::Application::notify("Diagnostico v0.5.5: sin red");
+        brls::Application::notify("Diagnostico v0.5.6: sin red");
         return true;
     });
 
-    statusLabel->setText("Diagnostico v0.5.5: shell sin red/libcurl/MPV.");
+    statusLabel->setText("Diagnostico v0.5.6: navegacion sin red/libcurl/MPV.");
     countLabel->setText("0 canales");
     iptvLog("[18] diagnostic IPTV shell ready");
+}
+
+void IptvActivity::willAppear(bool resetState)
+{
+    iptvLog("[20] IptvActivity willAppear entered");
+    brls::Activity::willAppear(resetState);
+    iptvLog("[21] IptvActivity base willAppear returned");
+
+    iptvLog("[22] before default focus probe");
+    auto* content = getContentView();
+    auto* focus = content ? content->getDefaultFocus() : nullptr;
+    logView("[23] default focus probe", focus);
 }
 
 } // namespace xuitch::ui

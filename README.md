@@ -2,7 +2,12 @@
 
 XuitchTV is an experimental native media client for Nintendo Switch homebrew, implemented in C++17 with Borealis, libcurl and libmpv.
 
-## Current version: 0.5.1 — First Hardware Preview
+## Current version: 0.5.6 — IPTV Navigation Diagnostic
+
+The main menu is stable on Nintendo Switch hardware. This diagnostic build
+opens an offline IPTV shell with networking, playlist refresh and MPV disabled.
+Activity transitions are disabled while navigation is verified with checkpoints
+in `sdmc:/switch/XuitchTV/iptv.log`.
 
 The MVP path is now wired end-to-end in source code:
 

@@ -38,7 +38,9 @@ assert 'mpv_render_context_render' in video
 
 main = (root / 'app/source/ui/MainActivity.cpp').read_text(encoding='utf-8')
 assert 'new IptvActivity()' in main
-assert 'XuitchTV v0.5.5 - IPTV Shell Diagnostic' in main
+assert 'XuitchTV v0.5.6 - IPTV Navigation Diagnostic' in main
+assert 'brls::TransitionAnimation::NONE' in main
+assert 'brls::TransitionAnimation::SLIDE_LEFT' not in main
 for checkpoint in ('[01]', '[02]', '[03]', '[04]', '[05]'):
     assert checkpoint in main, f'{checkpoint} missing from MainActivity diagnostic log'
 
@@ -47,9 +49,9 @@ for forbidden in ('HttpClient', 'IptvService', 'IptvNavigator', 'IptvPlaylist'):
     assert forbidden not in iptv_header, f'{forbidden} must not be constructed by diagnostic shell'
 
 iptv = (root / 'app/source/ui/IptvActivity.cpp').read_text(encoding='utf-8')
-for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]'):
+for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]', '[20]', '[21]', '[22]', '[23]'):
     assert checkpoint in iptv, f'{checkpoint} missing from IptvActivity diagnostic log'
 for forbidden in ('AppConfig::', 'refreshPlaylist(', 'new PlayerActivity', 'service.refresh'):
-    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.5.5 diagnostic shell'
-print('v0.5.5 IPTV diagnostic shell contract test: OK')
+    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.5.6 diagnostic shell'
+print('v0.5.6 IPTV navigation diagnostic contract test: OK')
 PY

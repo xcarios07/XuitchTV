@@ -27,20 +27,20 @@ void MainActivity::onContentAvailable()
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText("XuitchTV v0.5.5 - IPTV Shell Diagnostic");
+        versionLabel->setText("XuitchTV v0.5.6 - IPTV Navigation Diagnostic");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            iptvLog("XuitchTV v0.5.5 IPTV shell diagnostic", "w");
+            iptvLog("XuitchTV v0.5.6 IPTV navigation diagnostic", "w");
             iptvLog("[01] IPTV button click callback entered");
             iptvLog("[02] before new IptvActivity");
             auto* iptvActivity = new IptvActivity();
             iptvLog("[03] new IptvActivity returned");
-            iptvLog("[04] before pushActivity");
+            iptvLog("[04] before pushActivity - transition NONE");
             brls::Application::pushActivity(iptvActivity,
-                brls::TransitionAnimation::SLIDE_LEFT);
+                brls::TransitionAnimation::NONE);
             iptvLog("[05] pushActivity returned");
             return true;
         });
@@ -48,6 +48,11 @@ void MainActivity::onContentAvailable()
 
     // The portal API core exists, but its final browsing UI is not ready yet.
     if (portalButton) portalButton->setState(brls::ButtonState::DISABLED);
+}
+
+void MainActivity::onPause()
+{
+    iptvLog("[06] MainActivity onPause entered");
 }
 
 } // namespace xuitch::ui
