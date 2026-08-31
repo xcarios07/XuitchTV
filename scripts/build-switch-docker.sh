@@ -19,8 +19,10 @@ docker run --rm \
   "$IMAGE" bash -lc '
     set -euo pipefail
 
-    echo "=== Updating devkitPro packages ==="
-    dkp-pacman -Syu --noconfirm
+    echo "=== Refreshing devkitPro packages ==="
+    if ! dkp-pacman -Syu --noconfirm; then
+      echo "WARNING: devkitPro index refresh failed; using the package database bundled in the pinned Docker image."
+    fi
 
     echo "=== Installing official Switch dependencies ==="
     dkp-pacman -S --needed --noconfirm \
