@@ -1,0 +1,30 @@
+<brls:AppletFrame
+    backgroundColor="@theme/brls/background"
+    headerHidden="true"
+    footerHidden="false">
+    <brls:Box axis="column" width="100%" height="100%">
+        <brls:Box
+            id="player/video/host"
+            axis="column"
+            width="100%"
+            grow="1"
+            backgroundColor="#000000" />
+
+        <brls:Box
+            axis="row"
+            width="100%"
+            height="96"
+            paddingTop="14"
+            paddingBottom="14"
+            paddingLeft="34"
+            paddingRight="34"
+            alignItems="center">
+            <brls:Box axis="column" grow="1">
+                <brls:Label id="player/title" fontSize="22" text="Canal IPTV" />
+                <brls:Label id="player/status" marginTop="4" fontSize="14" text="Inicializando..." />
+            </brls:Box>
+            <brls:Button id="player/pause" width="150" marginRight="12" text="Pausa" />
+            <brls:Button id="player/stop" width="150" text="Salir" />
+        </brls:Box>
+    </brls:Box>
+</brls:AppletFrame>

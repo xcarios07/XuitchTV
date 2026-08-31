@@ -1,0 +1,38 @@
+<brls:AppletFrame
+    backgroundColor="@theme/brls/background"
+    headerHidden="false"
+    footerHidden="false">
+    <brls:Box
+        axis="column"
+        width="100%"
+        height="100%"
+        paddingTop="28"
+        paddingBottom="22"
+        paddingLeft="46"
+        paddingRight="46">
+        <brls:Box axis="row" width="100%" height="64" alignItems="center">
+            <brls:Box axis="column" grow="1">
+                <brls:Label fontSize="32" text="IPTV Paraguay" />
+                <brls:Label id="iptv/status" marginTop="4" fontSize="15" text="Listo" />
+            </brls:Box>
+            <brls:Label id="iptv/count" width="130" fontSize="16" text="0 canales" />
+            <brls:Button id="iptv/refresh" width="190" text="Actualizar" />
+        </brls:Box>
+
+        <brls:Box axis="row" width="100%" grow="1" marginTop="20">
+            <brls:Box axis="column" width="300" height="100%" marginRight="22">
+                <brls:Label fontSize="19" text="Categorias" marginBottom="10" />
+                <brls:ScrollingFrame grow="1" scrollingBehavior="natural">
+                    <brls:Box id="iptv/categories" axis="column" width="100%" />
+                </brls:ScrollingFrame>
+            </brls:Box>
+
+            <brls:Box axis="column" grow="1" height="100%">
+                <brls:Label fontSize="19" text="Canales" marginBottom="10" />
+                <brls:ScrollingFrame grow="1" scrollingBehavior="natural">
+                    <brls:Box id="iptv/channels" axis="column" width="100%" />
+                </brls:ScrollingFrame>
+            </brls:Box>
+        </brls:Box>
+    </brls:Box>
+</brls:AppletFrame>

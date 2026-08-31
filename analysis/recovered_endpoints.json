@@ -1,0 +1,29 @@
+{
+  "source": "static string analysis of supplied APK",
+  "host": "not embedded in domain_test.json (placeholder values)",
+  "paths": [
+    "/api/portalCore/v8/login",
+    "/api/portalCore/v8/active",
+    "/api/portalCore/v5/loginOut",
+    "/api/portalCore/v5/heartbeat",
+    "/api/portalCore/getHome",
+    "/api/portalCore/v6/getLiveData",
+    "/api/portalCore/v4/startPlayLive",
+    "/api/portalCore/v6/startPlayBTV",
+    "/api/portalCore/v10/startPlayVOD",
+    "/api/portalCore/v4/getItemData",
+    "/api/portalCore/v3/getProgram",
+    "/api/portalCore/v3/getRecommends",
+    "/api/portalCore/v3/getShelveData",
+    "/api/portalCore/v3/getColumnContents",
+    "/api/portalCore/getNextColumns",
+    "/api/portalCore/searchResourceOrPerson",
+    "/api/portalCore/v3/searchByName",
+    "/api/portalCore/v3/searchByContent",
+    "/api/portalCore/liveSearchByName",
+    "/api/portalCore/blSearchByName",
+    "/api/portalCore/blSearchByContent",
+    "/api/portalCore/v14/getSlbInfo",
+    "/api/portalCore/v15/getSlbInfo"
+  ]
+}

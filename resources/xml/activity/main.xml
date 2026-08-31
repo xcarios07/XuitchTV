@@ -1,0 +1,58 @@
+<brls:AppletFrame
+    backgroundColor="@theme/brls/background"
+    headerHidden="false"
+    footerHidden="false">
+    <brls:Box
+        axis="column"
+        width="100%"
+        height="100%"
+        paddingTop="44"
+        paddingLeft="64"
+        paddingRight="64">
+        <brls:Label fontSize="38" text="XuitchTV" />
+        <brls:Label
+            marginTop="8"
+            fontSize="18"
+            text="TV  |  IPTV  |  Peliculas  |  Series  |  Deportes" />
+
+        <brls:Box axis="row" width="100%" marginTop="40">
+            <brls:Button
+                id="main/iptv/button"
+                width="360"
+                height="90"
+                text="IPTV Paraguay" />
+            <brls:Box axis="column" grow="1" marginLeft="28">
+                <brls:Label fontSize="22" text="Television IPTV" />
+                <brls:Label
+                    marginTop="8"
+                    fontSize="16"
+                    text="Carga dinamicamente la lista publica M3U de Paraguay." />
+                <brls:Label
+                    marginTop="6"
+                    fontSize="15"
+                    text="Categorias, canales y reproduccion MPV desde la misma aplicacion." />
+            </brls:Box>
+        </brls:Box>
+
+        <brls:Box axis="row" width="100%" marginTop="22">
+            <brls:Button
+                id="main/portal/button"
+                width="360"
+                height="90"
+                text="TV / Portal" />
+            <brls:Box axis="column" grow="1" marginLeft="28">
+                <brls:Label fontSize="22" text="Servicio principal" />
+                <brls:Label
+                    marginTop="8"
+                    fontSize="16"
+                    text="API Live/VOD recuperada; interfaz completa en una fase posterior." />
+            </brls:Box>
+        </brls:Box>
+
+        <brls:Label
+            id="main/version"
+            marginTop="34"
+            fontSize="15"
+            text="XuitchTV - First Hardware Preview" />
+    </brls:Box>
+</brls:AppletFrame>

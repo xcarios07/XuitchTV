@@ -1,0 +1,50 @@
+{
+  "package": "com.xuper.netxxus",
+  "application": "com.interactive.brasiliptv.app.AppWrapper",
+  "entry": "com.interactive.brasiliptv.ui.activity.WelcomeActivity",
+  "activities": {
+    "startup": [
+      "com.interactive.brasiliptv.ui.activity.WelcomeActivity",
+      "com.interactive.brasiliptv.ui.activity.GuidePageActivity"
+    ],
+    "main": [
+      "com.main.ui.activity.HomeActivity"
+    ],
+    "login": [
+      "com.login.ui.activity.ForcePasswordChangeActivity"
+    ],
+    "live": [
+      "com.live.ui.activity.LiveFreeActivity",
+      "com.live.ui.activity.LiveVoiceSearchActivity",
+      "com.live.ui.activity.LiveNewVoiceSearchActivity"
+    ],
+    "sports": [
+      "com.match.ui.activity.MatchCategoryActivity",
+      "com.match.ui.activity.MatchDetailActivity",
+      "com.match.ui.activity.MatchRankCategoryActivity",
+      "com.match.ui.activity.MatchScheduleActivity"
+    ],
+    "vod": [
+      "com.vod.ui.activity.ActorDetailsActivity",
+      "com.vod.ui.activity.FilterActivity",
+      "com.vod.ui.activity.KidsCategoryActivity",
+      "com.vod.ui.activity.RestrictLevelSearchActivity",
+      "com.vod.ui.activity.TopicActivity",
+      "com.vod.ui.activity.TopicMoreActivity",
+      "com.vod.ui.activity.VodCategoryActivity",
+      "com.vod.ui.activity.VodDetailsActivity",
+      "com.vod.ui.activity.VodSearchActivity"
+    ],
+    "account": [
+      "com.mine.ui.activity.DisplayQRCodeActivity",
+      "com.mine.ui.activity.EventCenterActivity",
+      "com.mine.ui.activity.InviteFriendsActivity",
+      "com.mine.ui.activity.OrderHistoryActivity",
+      "com.mine.ui.activity.UserCenterActivity"
+    ],
+    "downloads": [
+      "com.download.ui.activity.DownloadActivity",
+      "com.download.ui.activity.LocalPlayActivity"
+    ]
+  }
+}

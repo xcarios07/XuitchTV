@@ -1,0 +1,2734 @@
+{
+  "source": "Recovered from DEX annotations/field tables in supplied APK",
+  "transport_notes": {
+    "Lmf/o": "Retrofit POST (inferred from usage)",
+    "Lmf/f": "Retrofit GET (inferred from usage)",
+    "Lmf/s": "@Path",
+    "Lmf/t": "@Query",
+    "Lmf/a": "@Body",
+    "body_encoding": "Core request wrappers call Gson.toJson(bean) before Retrofit; no extra encryption step observed in those wrappers."
+  },
+  "endpoints": [
+    {
+      "path": "/api/portalCore/addSubscribe",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "H0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/AddSubscribeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/apkQueryCoupon",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "d",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ApkQueryCouponResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/apkReceiveCoupon",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "P",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ApkReceiveCouponResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/bindEmailGiftDays",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "b0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BindEmailGiftDaysResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/bindPhone",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "y",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BindPhoneResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/blSearchByContent",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "y0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SearchByContentResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/blSearchByName",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "c0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SearchByNameResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/changeBindPhone",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "n",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/checkForceBind",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "k0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/CheckForceBindResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/checkVerifiCode",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "a0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/CheckVerifiCodeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/config/get",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "L0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ConfigResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/delFavorite",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "u0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/DelFavoriteResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/delSubscribe",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "i",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/device-management/deleteDevice",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "c",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/device-management/getDevice",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "u",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetDeviceResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/emailResetPassNotice",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "j0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getAllMatch",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "C0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lio/reactivex/Observable<Lcom/request/result/FootballMatchResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "appId"
+        },
+        {
+          "kind": "query",
+          "name": "match"
+        },
+        {
+          "kind": "query",
+          "name": "gameId"
+        },
+        {
+          "kind": "query",
+          "name": "pageSize"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getLineUps",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "A",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/LineupResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "gameId"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getMatchDetail",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "q",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/MatchStatResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "gameId"
+        },
+        {
+          "kind": "query",
+          "name": "teamAName"
+        },
+        {
+          "kind": "query",
+          "name": "teamBName"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getScoreboard",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "O",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/MatchScoreBoardResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "match"
+        },
+        {
+          "kind": "query",
+          "name": "teamAName"
+        },
+        {
+          "kind": "query",
+          "name": "teamBName"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getShelveMatch",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "M",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ShelveMatchResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "appId"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v2/getTeamEvent",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "Q",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/MatchEventResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "gameId"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v3/getFootballMatch",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "V",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FootballMatchResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "appId"
+        },
+        {
+          "kind": "query",
+          "name": "match"
+        },
+        {
+          "kind": "query",
+          "name": "date"
+        },
+        {
+          "kind": "query",
+          "name": "gameId"
+        },
+        {
+          "kind": "query",
+          "name": "appLanguage"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v4/getNearestMatch",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "i0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FootballMatchResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "appId"
+        },
+        {
+          "kind": "query",
+          "name": "pageSize"
+        },
+        {
+          "kind": "query",
+          "name": "appLanguage"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/epg/v5/getNearestMatch",
+      "http_method": "GET",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "s0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)Lio/reactivex/Observable<Lcom/request/result/FootballMatchResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "query",
+          "name": "appId"
+        },
+        {
+          "kind": "query",
+          "name": "pageSize"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/feedback/getCustomerService",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "Y",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FeedBackContactResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/feedback/userFeedBack",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "o0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/UserFeedBackResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getAllbackProgram",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "L",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetAllbackProgramResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getAreaCode",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "C",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetAreaCodeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getBaseTime",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "t0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseTimeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getEmailSuffix",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "A0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetEmailSuffixResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getExchangeOrderInfo",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "a",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetExchangeOrderInfoResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getFavorite",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "w0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetFavoritesResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getHome",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "e",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetHomeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getItemByPerson",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "e0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/PersonWorksResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getNextColumns",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "E",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetNextColumnResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getPerson",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "g",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/PersonResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getPropertiesInfo",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "G0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/PropertiesInfoResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getRecommendColumnContents",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "F0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/RecommendColumnContentResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getSubscribe",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "I",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetSubscribeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/getVerifiCode",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "W",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetVerifiCodeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/liveSearchByName",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "p0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetLiveDataResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/package/getOrderInfo",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "F",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetOrderInfoResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/package/getPackageCustomization",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "h",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetPackageResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/pwdCheck",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "x",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/qr/allowLogin",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "r",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/qr/token",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "h0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetQrTokenResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/register",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "w",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/RegisterResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/searchResourceOrPerson",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "n0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SearchROrPResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/setPassword",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "E0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/terminalAuth",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "g0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/TerminalAuthResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/unBindEmail",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "z0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/UnBindEmailResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/updateBindEmailOrPwd",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "U",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v10/startPlayVOD",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "H",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lretrofit2/Call<Lcom/request/result/StartPlayVODResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v10/startPlayVOD",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "S",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/StartPlayVODResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v14/getSlbInfo",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "X",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetSlbInfoBeanResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v15/getSlbInfo",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "o",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetSlbInfoBeanResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/addFavorite",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "J0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/AddFavoriteResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/bindEmail",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "b",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/changeBindEmail",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "B0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/getFree",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "K",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FreeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/getInviteCode",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8",
+        "needEncrypt:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "x0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetInviteCodeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/sendEmailVerifyCode",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "l0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/unBind",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "k",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/updateRestrictedStatus",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "f0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v2/validateVerifyCode",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "r0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/VerifyEmailCodeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/filterByContent",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "l",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FilterByContentResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/filterGenre",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "D",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/FilterGenreResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/getColumnContents",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "z",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetColumnContentsResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/getColumnRecommendResource",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "T",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetColumnRecommendsResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/getProgram",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "K0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/EpgResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/getRecommends",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "J",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetRecommendsResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/getShelveData",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "v",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetShelveResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/searchByContent",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "j",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SearchByContentResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/searchByName",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "v0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SearchByNameResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v3/snToken",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "Z",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/SnTokenResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v4/getItemData",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "m",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetItemDataResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v4/resetPwd",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "q0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/BaseResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v4/startPlayLive",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "D0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/StartPlayLiveResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v5/exchange",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "R",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ExchangeResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v5/heartbeat",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "m0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/HeartBeatResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v5/loginOut",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "f",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/LoginResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v5/qr/getResult",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "t",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetQrResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v6/getLiveData",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "B",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetLiveDataResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v6/startPlayBTV",
+      "http_method": "POST",
+      "headers": [
+        "Cache-Control:no-store;Content-type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "M0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/StartPlayBTVResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v8/active",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "N",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/ActiveResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v8/login",
+      "http_method": "POST",
+      "headers": [
+        "Content-type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "I0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/LoginResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    },
+    {
+      "path": "/api/portalCore/v9/getAuthInfo",
+      "http_method": "POST",
+      "headers": [
+        "Content-Type:application/json;charset=utf-8",
+        "ProcessResult:false"
+      ],
+      "retrofit_class": "Lsb/b;",
+      "retrofit_method": "d0",
+      "signature": "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lio/reactivex/Observable<Lcom/request/result/GetAuthInfoResult;>;",
+      "parameters": [
+        {
+          "kind": "path",
+          "name": "agreement"
+        },
+        {
+          "kind": "path",
+          "name": "ip"
+        },
+        {
+          "kind": "body"
+        }
+      ]
+    }
+  ],
+  "known_models": {
+    "login": "Lcom/request/bean/LoginBean;",
+    "home": "Lcom/request/bean/GetHomeBean;",
+    "live_data": "Lcom/request/bean/GetLiveDataBean;",
+    "start_live": "Lcom/request/bean/StartPlayLiveBean;",
+    "start_vod": "Lcom/request/bean/StartPlayVODBean;"
+  },
+  "models": {
+    "Lcom/request/bean/LoginBean;": [
+      {
+        "name": "accountType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "areaCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "channel",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "macAddr",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "matadata",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "password",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "signdata",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userName",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "verificationCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "verificationToken",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/bean/GetHomeBean;": [
+      {
+        "name": "homePageCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "portalCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "version",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/bean/GetLiveDataBean;": [
+      {
+        "name": "columnId",
+        "type": "I"
+      },
+      {
+        "name": "dataVersion",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "expireTimeStr",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "pageNum",
+        "type": "Ljava/lang/Integer;"
+      },
+      {
+        "name": "pageSize",
+        "type": "Ljava/lang/Integer;"
+      },
+      {
+        "name": "portalCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/bean/StartPlayLiveBean;": [
+      {
+        "name": "channelCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "columnId",
+        "type": "Ljava/lang/Integer;"
+      },
+      {
+        "name": "portalCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/bean/StartPlayVODBean;": [
+      {
+        "name": "authType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "columnId",
+        "type": "Ljava/lang/Integer;"
+      },
+      {
+        "name": "contentId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "episodeNumberList",
+        "type": "[I"
+      },
+      {
+        "name": "portalCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "seriesContentId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "startTime",
+        "type": "I"
+      },
+      {
+        "name": "type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/LoginResultData;": [
+      {
+        "name": "accountType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "activeTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "appModel",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "areaCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "areaFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "authInfoList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "availableTime",
+        "type": "I"
+      },
+      {
+        "name": "bindMail",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "bindMobile",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "cacheTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "chargeFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "childLockPwd",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "customer",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "email",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "expRemainingDays",
+        "type": "I"
+      },
+      {
+        "name": "getFreeAuthDays",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "getFreeAuthFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "hasFreeAuth",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "hasPay",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "hasPwd",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "heartBeatTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "mobile",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "nowTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "payCoreAddress",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "playlistUrl",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "portalCodeList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "pwdTip",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "qrcodeDisplay",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "qrcodeMessage",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "recommCacheTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "remainingDays",
+        "type": "I"
+      },
+      {
+        "name": "renewFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "restrictedStatus",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "showFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "showType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "tips",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "token",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userIdentity",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userToken",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "userType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "verificationToken",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "vodFreeCount",
+        "type": "I"
+      }
+    ],
+    "Lcom/request/result/StartPlayLiveResultData;": [
+      {
+        "name": "liveAddressList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "name",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/LiveAddress;": [
+      {
+        "name": "AVFormat",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "cdnType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "license",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "playCode",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "quality",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "tag",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/StartPlayVODResultData;": [
+      {
+        "name": "episodeList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "name",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "seriesFlag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "vodFreeCount",
+        "type": "I"
+      },
+      {
+        "name": "vodFreeFlag",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/StartPlayVODResultDataItem;": [
+      {
+        "name": "episodeNumber",
+        "type": "I"
+      },
+      {
+        "name": "programContentId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "subtitleList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "totalMovieList",
+        "type": "Ljava/util/List;"
+      }
+    ],
+    "Lcom/request/result/MovieList;": [
+      {
+        "name": "audioInfo",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "audioType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "bitRateType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "contentId",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "encodeFormat",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "licenseList",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "quality",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "screenFormat",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "terminalType",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "videoFormat",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "videoType",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/GetSlbInfoBeanResultData;": [
+      {
+        "name": "cdn_list",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "error_code",
+        "type": "Ljava/lang/Integer;"
+      },
+      {
+        "name": "invalidTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "merge_rst_status",
+        "type": "I"
+      },
+      {
+        "name": "nowTime",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "play_params",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "reserve_a",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "reserve_b",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "rst_status",
+        "type": "I"
+      },
+      {
+        "name": "switchLiveSourceTime",
+        "type": "I"
+      },
+      {
+        "name": "switchLiveSourceTimeV2",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "switchVodSourceTime",
+        "type": "I"
+      },
+      {
+        "name": "switchVodSourceTimeV2",
+        "type": "Ljava/lang/String;"
+      }
+    ],
+    "Lcom/request/result/CdnListBeanResult;": [
+      {
+        "name": "cdn_id",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "cdn_id_mark",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "cdn_type",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "group_id_mark",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "gslb_params",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "main_addr",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "main_addr_mark",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "rule_id_mark",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "serial_number",
+        "type": "I"
+      },
+      {
+        "name": "spared_addr",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "spared_addr_mark",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "tag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "token",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "url_list",
+        "type": "Ljava/util/List;"
+      },
+      {
+        "name": "weight",
+        "type": "Ljava/lang/Integer;"
+      }
+    ],
+    "Lcom/request/result/UrlListBeanResult;": [
+      {
+        "name": "tag",
+        "type": "Ljava/lang/String;"
+      },
+      {
+        "name": "url",
+        "type": "Ljava/lang/String;"
+      }
+    ]
+  }
+}

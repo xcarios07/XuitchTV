@@ -1,0 +1,11 @@
+{
+  "portalBaseUrl": "https://YOUR_AUTHORIZED_PORTAL_HOST",
+  "portalCode": "",
+  "deviceId": "",
+  "iptv": {
+    "enabled": true,
+    "playlistUrl": "https://iptv-org.github.io/iptv/countries/py.m3u",
+    "epgUrl": "",
+    "hideUnavailable": false
+  }
+}
