@@ -1,0 +1,43 @@
+name: Build Nintendo Switch NRO
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-switch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout XuitchTV
+        uses: actions/checkout@v4
+
+      - name: Prepare Borealis
+        run: |
+          chmod +x scripts/*.sh
+          ./scripts/bootstrap-deps.sh
+
+      - name: Build XuitchTV NRO
+        run: |
+          ./scripts/build-switch-docker.sh
+
+      - name: Prepare SD package
+        run: |
+          ./scripts/package-sd.sh
+
+      - name: Upload XuitchTV NRO
+        uses: actions/upload-artifact@v4
+        with:
+          name: XuitchTV-nro
+          path: build_switch/XuitchTV.nro
+          if-no-files-found: error
+
+      - name: Upload XuitchTV SD package
+        uses: actions/upload-artifact@v4
+        with:
+          name: XuitchTV-SD
+          path: dist/XuitchTV-SD.zip
+          if-no-files-found: error
