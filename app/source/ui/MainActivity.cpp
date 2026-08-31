@@ -1,26 +1,47 @@
 #include "ui/MainActivity.hpp"
 
-#include "core/BuildInfo.hpp"
+#include <cstdio>
 
 #include "ui/IptvActivity.hpp"
 
 namespace xuitch::ui {
 
-void MainActivity::onContentAvailable() {
+namespace {
+constexpr const char* kIptvLogPath = "sdmc:/switch/XuitchTV/iptv.log";
+
+void iptvLog(const char* message, const char* mode = "a")
+{
+    FILE* file = std::fopen(kIptvLogPath, mode);
+    if (!file)
+        return;
+    std::fprintf(file, "%s\n", message);
+    std::fflush(file);
+    std::fclose(file);
+}
+} // namespace
+
+void MainActivity::onContentAvailable()
+{
     auto* iptvButton = dynamic_cast<brls::Button*>(getView("main/iptv/button"));
     auto* portalButton = dynamic_cast<brls::Button*>(getView("main/portal/button"));
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText(std::string("XuitchTV v") + core::kAppVersion + " - First Hardware Preview");
+        versionLabel->setText("XuitchTV v0.5.5 - IPTV Shell Diagnostic");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            brls::Application::pushActivity(
-                new IptvActivity(),
+            iptvLog("XuitchTV v0.5.5 IPTV shell diagnostic", "w");
+            iptvLog("[01] IPTV button click callback entered");
+            iptvLog("[02] before new IptvActivity");
+            auto* iptvActivity = new IptvActivity();
+            iptvLog("[03] new IptvActivity returned");
+            iptvLog("[04] before pushActivity");
+            brls::Application::pushActivity(iptvActivity,
                 brls::TransitionAnimation::SLIDE_LEFT);
+            iptvLog("[05] pushActivity returned");
             return true;
         });
     }
@@ -30,3 +51,4 @@ void MainActivity::onContentAvailable() {
 }
 
 } // namespace xuitch::ui
+

@@ -38,7 +38,19 @@ assert 'mpv_render_context_render' in video
 
 main = (root / 'app/source/ui/MainActivity.cpp').read_text(encoding='utf-8')
 assert 'new IptvActivity()' in main
+assert 'XuitchTV v0.5.5 - IPTV Shell Diagnostic' in main
+for checkpoint in ('[01]', '[02]', '[03]', '[04]', '[05]'):
+    assert checkpoint in main, f'{checkpoint} missing from MainActivity diagnostic log'
+
+iptv_header = (root / 'app/include/ui/IptvActivity.hpp').read_text(encoding='utf-8')
+for forbidden in ('HttpClient', 'IptvService', 'IptvNavigator', 'IptvPlaylist'):
+    assert forbidden not in iptv_header, f'{forbidden} must not be constructed by diagnostic shell'
+
 iptv = (root / 'app/source/ui/IptvActivity.cpp').read_text(encoding='utf-8')
-assert 'new PlayerActivity(selected)' in iptv
-print('phase4B UI contract test: OK')
+for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]'):
+    assert checkpoint in iptv, f'{checkpoint} missing from IptvActivity diagnostic log'
+for forbidden in ('AppConfig::', 'refreshPlaylist(', 'new PlayerActivity', 'service.refresh'):
+    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.5.5 diagnostic shell'
+print('v0.5.5 IPTV diagnostic shell contract test: OK')
 PY
+
