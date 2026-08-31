@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-BOREALIS_REF="${BOREALIS_REF:-wiliwili}"
+BOREALIS_REF="${BOREALIS_REF:-switchfin}"
 mkdir -p "$ROOT/library"
 
 if [[ ! -d "$ROOT/library/borealis/.git" ]]; then
