@@ -57,6 +57,13 @@ elseif(PLATFORM_DESKTOP)
 endif()
 
 file(GLOB_RECURSE MAIN_SRC CONFIGURE_DEPENDS app/source/*.cpp)
+if(PLATFORM_SWITCH)
+    # Borealis/libnx service initialization:
+    # RomFS, sockets, fonts, network and system services.
+    list(APPEND MAIN_SRC
+        ${BOREALIS_LIBRARY}/lib/platforms/switch/switch_wrapper.c
+    )
+endif()
 program_target(${PROJECT_NAME} "${MAIN_SRC}")
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 17 CXX_STANDARD_REQUIRED YES)
 
