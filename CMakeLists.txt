@@ -14,7 +14,7 @@ project(XuitchTV)
 
 set(VERSION_MAJOR "0")
 set(VERSION_MINOR "5")
-set(VERSION_PATCH "3")
+set(VERSION_PATCH "7")
 set(PROJECT_AUTHOR "XuitchTV Project")
 set(PROJECT_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/icon.jpg)
 set(PROJECT_RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/resources)

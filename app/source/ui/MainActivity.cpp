@@ -27,13 +27,13 @@ void MainActivity::onContentAvailable()
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText("XuitchTV v0.5.6 - IPTV Navigation Diagnostic");
+        versionLabel->setText("XuitchTV v0.5.7 - IPTV Playlist Test");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            iptvLog("XuitchTV v0.5.6 IPTV navigation diagnostic", "w");
+            iptvLog("XuitchTV v0.5.7 IPTV playlist test", "w");
             iptvLog("[01] IPTV button click callback entered");
             iptvLog("[02] before new IptvActivity");
             auto* iptvActivity = new IptvActivity();

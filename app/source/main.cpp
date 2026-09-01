@@ -24,7 +24,7 @@ void resetBootLog()
     FILE* file = std::fopen(kBootLogPath, "w");
     if (!file)
         return;
-    std::fprintf(file, "XuitchTV v0.5.6 IPTV navigation diagnostic\n");
+    std::fprintf(file, "XuitchTV v0.5.7 IPTV playlist test\n");
     std::fflush(file);
     std::fclose(file);
 }
