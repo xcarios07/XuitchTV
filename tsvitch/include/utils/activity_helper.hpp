@@ -18,6 +18,8 @@ public:
 
     static void openMain();
 
+    static void openTV();
+
     static void openGallery(const std::vector<std::string>& data);
 
     static void openDLNA();

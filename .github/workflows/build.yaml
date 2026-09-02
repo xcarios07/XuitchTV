@@ -35,18 +35,18 @@ jobs:
           cp cmake-build-switch/XuitchTV.nro dist/switch/XuitchTV/XuitchTV.nro
           cp README.md dist/switch/XuitchTV/README.txt
           cd dist
-          zip -qr XuitchTV-v0.8.0-beta.1-SD.zip switch
+          zip -qr XuitchTV-v0.8.1-beta.1-SD.zip switch
 
       - name: Upload XuitchTV NRO
         uses: actions/upload-artifact@v4
         with:
-          name: XuitchTV-v0.8.0-beta.1-nro
+          name: XuitchTV-v0.8.1-beta.1-nro
           path: cmake-build-switch/XuitchTV.nro
           if-no-files-found: error
 
       - name: Upload XuitchTV SD package
         uses: actions/upload-artifact@v4
         with:
-          name: XuitchTV-v0.8.0-beta.1-SD
-          path: dist/XuitchTV-v0.8.0-beta.1-SD.zip
+          name: XuitchTV-v0.8.1-beta.1-SD
+          path: dist/XuitchTV-v0.8.1-beta.1-SD.zip
           if-no-files-found: error

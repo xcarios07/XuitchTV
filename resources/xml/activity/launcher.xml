@@ -1,0 +1,88 @@
+<brls:AppletFrame
+        backgroundColor="#050814"
+        headerHidden="true"
+        footerHidden="false">
+    <brls:Box axis="row" width="100%" height="100%">
+        <brls:Box
+                axis="column"
+                width="300"
+                height="100%"
+                backgroundColor="#091024"
+                paddingTop="24"
+                paddingBottom="20"
+                paddingLeft="26"
+                paddingRight="26">
+            <brls:Image
+                    width="244"
+                    height="170"
+                    scalingType="fit"
+                    image="@res/icon/icon.jpg" />
+            <brls:Label
+                    marginTop="2"
+                    marginBottom="14"
+                    fontSize="14"
+                    textColor="#55D8FF"
+                    text="CENTRO MULTIMEDIA" />
+            <brls:Button id="launcher/tv" height="58" marginBottom="8" text="TV EN VIVO" />
+            <brls:Button id="launcher/portal" height="48" marginBottom="7" text="PORTAL / CUENTA" />
+            <brls:Button id="launcher/movies" height="48" marginBottom="7" text="PELÍCULAS" />
+            <brls:Button id="launcher/series" height="48" marginBottom="7" text="SERIES" />
+            <brls:Button id="launcher/sports" height="48" marginBottom="7" text="DEPORTES" />
+            <brls:Button id="launcher/settings" height="48" text="CONFIGURACIÓN" />
+            <brls:Box grow="1" />
+            <brls:Label fontSize="13" textColor="#7889AE" text="XuitchTV v0.8.1 beta" />
+        </brls:Box>
+
+        <brls:Box
+                axis="column"
+                grow="1"
+                height="100%"
+                paddingTop="38"
+                paddingBottom="28"
+                paddingLeft="42"
+                paddingRight="42">
+            <brls:Box axis="row" width="100%" height="58" alignItems="center">
+                <brls:Box axis="column" grow="1">
+                    <brls:Label fontSize="31" text="Bienvenido a XuitchTV" />
+                    <brls:Label marginTop="4" fontSize="15" textColor="#91A2C8" text="Entretenimiento en tu Nintendo Switch" />
+                </brls:Box>
+                <brls:Label fontSize="15" textColor="#55E6B5" text="●  LISTO" />
+            </brls:Box>
+
+            <brls:Box
+                    axis="column"
+                    width="100%"
+                    height="244"
+                    marginTop="22"
+                    backgroundColor="#111D40"
+                    paddingTop="30"
+                    paddingBottom="26"
+                    paddingLeft="34"
+                    paddingRight="34">
+                <brls:Label fontSize="14" textColor="#5BDBFF" text="AHORA DISPONIBLE" />
+                <brls:Label marginTop="10" fontSize="35" text="TELEVISIÓN EN VIVO" />
+                <brls:Label marginTop="10" fontSize="17" textColor="#C1CBE2" text="Canales con logos, categorías, favoritos e historial." />
+                <brls:Label marginTop="6" fontSize="15" textColor="#8C9CC0" text="Compatible con listas M3U/M3U8 y portales Xtream autorizados." />
+                <brls:Label marginTop="21" fontSize="15" textColor="#FF658B" text="Pulsa TV EN VIVO para comenzar  ›" />
+            </brls:Box>
+
+            <brls:Box axis="row" width="100%" grow="1" marginTop="22">
+                <brls:Box axis="column" grow="1" height="100%" marginRight="14" backgroundColor="#0C1530" paddingTop="24" paddingLeft="22" paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#50D7FF" text="TV" />
+                    <brls:Label marginTop="15" fontSize="18" text="Canales en vivo" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Navega por países y categorías." />
+                </brls:Box>
+                <brls:Box axis="column" grow="1" height="100%" marginRight="14" backgroundColor="#0C1530" paddingTop="24" paddingLeft="22" paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#F85B8A" text="VOD" />
+                    <brls:Label marginTop="15" fontSize="18" text="Películas y series" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Usa el catálogo de tu portal autorizado." />
+                </brls:Box>
+                <brls:Box axis="column" grow="1" height="100%" backgroundColor="#0C1530" paddingTop="24" paddingLeft="22" paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#FF9C46" text="SPORT" />
+                    <brls:Label marginTop="15" fontSize="18" text="Deportes" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Busca la categoría deportiva de tu lista." />
+                </brls:Box>
+            </brls:Box>
+        </brls:Box>
+    </brls:Box>
+</brls:AppletFrame>

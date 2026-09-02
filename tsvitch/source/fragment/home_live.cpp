@@ -383,10 +383,7 @@ void HomeLive::onLiveList(tsvitch::LiveM3u8ListResult result, bool firstLoad) {
         if (isSearchActive) {
             this->cancelSearch();
         } else {
-            auto dialog = new brls::Dialog("hints/exit_hint"_i18n);
-            dialog->addButton("hints/cancel"_i18n, []() {});
-            dialog->addButton("hints/ok"_i18n, []() { brls::Application::quit(); });
-            dialog->open();
+            brls::Application::popActivity(brls::TransitionAnimation::NONE);
         }
         return true;
     });

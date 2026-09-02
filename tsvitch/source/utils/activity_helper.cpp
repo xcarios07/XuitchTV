@@ -8,6 +8,7 @@
 #include "activity/settings_activity.hpp"
 
 #include "activity/main_activity.hpp"
+#include "activity/launcher_activity.hpp"
 #include "activity/hint_activity.hpp"
 
 #include "utils/activity_helper.hpp"
@@ -28,8 +29,14 @@ void Intent::openSettings(std::function<void()> onClose) {
 void Intent::openHint() { brls::Application::pushActivity(new HintActivity()); }
 
 void Intent::openMain() {
-    auto activity = new MainActivity();
+    auto activity = new LauncherActivity();
     brls::Application::pushActivity(activity);
+    registerFullscreen(activity);
+}
+
+void Intent::openTV() {
+    auto activity = new MainActivity();
+    brls::Application::pushActivity(activity, brls::TransitionAnimation::NONE);
     registerFullscreen(activity);
 }
 

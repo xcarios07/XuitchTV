@@ -9,12 +9,13 @@
                         grow="1"
                         tabBackgroundColor="@theme/color/grey_1"
                         tabItemActiveTextColor="@theme/color/tsvitch"
-                        defaultTab="0"
+                        defaultTab="1"
                         demandMode="false"
                         sidebarWidth="240"
                         sidebarPosition="left">
 
                         <Tab label="@i18n/tsvitch/setting/about/tab"
+                                visibility="gone"
                                 style="inline"
                                 icon="@res/svg/setting_about.svg"
                                 iconActivate="@res/svg/setting_about_active.svg"
@@ -402,6 +403,7 @@
                         </Tab>
 
                         <Tab label="@i18n/tsvitch/setting/opensource/tab"
+                                visibility="gone"
                                 style="inline"
                                 icon="@res/svg/setting_github.svg"
                                 iconActivate="@res/svg/setting_github_active.svg"

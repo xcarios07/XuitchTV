@@ -4,7 +4,7 @@ XuitchTV-Next is the new Nintendo Switch media-client foundation for XuitchTV.
 It is distributed under GPL-3.0; required upstream attribution and third-party
 licenses are documented in `THIRD_PARTY_NOTICES.md` and the in-app legal screen.
 
-## Current milestone: 0.8.0-beta.1
+## Current milestone: 0.8.1-beta.1
 
 This beta lives on the `codex/xuitchtv-next` branch of the existing XuitchTV
 repository. The previous implementation remains available on `main` while the
@@ -17,6 +17,8 @@ new playback foundation is validated on Nintendo Switch hardware.
 - Direct playback without an external registration or advertising server.
 - Analytics disabled.
 - XuitchTV application name, NRO path and icon.
+- XuitchTV multimedia launcher with TV, portal, movies, series, sports and settings entries.
+- About and dependency-license tabs removed from the user-facing settings menu; legal notices remain in the source distribution.
 - Default public source: iptv-org Paraguay playlist.
 
 ## Configure a source
