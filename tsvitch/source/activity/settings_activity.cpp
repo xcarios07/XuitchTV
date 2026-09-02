@@ -31,6 +31,9 @@
 using namespace brls::literals;
 
 const std::map<std::string, std::map<std::string, std::string>> OPENSOURCE = {
+    {"TsVitch",
+     {{"Official site", "https://github.com/giovannimirulla/TsVitch"},
+      {"Notes", "Original project by giovannimirulla and contributors. XuitchTV is a modified GPL-3.0 version."}}},
     {"FFmpeg",
      {{"Official site", "https://www.ffmpeg.org"},
       {"Notes", "Copyright (c) FFmpeg developers and contributors.\nLicensed under LGPLv2.1 or later"}}},

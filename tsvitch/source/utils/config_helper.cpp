@@ -276,7 +276,7 @@ void ProgramConfig::saveHomeWindowState() {
 }
 
 void ProgramConfig::load() {
-    const std::string path = this->getConfigDir() + "/tsvitch_config.json";
+    const std::string path = this->getConfigDir() + "/xuitchtv_config.json";
 
     std::ifstream readFile(path);
     if (readFile) {
@@ -544,7 +544,7 @@ int ProgramConfig::getStringOptionIndex(SettingItem item) {
 }
 
 void ProgramConfig::save() {
-    const std::string path = this->getConfigDir() + "/tsvitch_config.json";
+    const std::string path = this->getConfigDir() + "/xuitchtv_config.json";
 
 #ifndef IOS
     cpr::fs::create_directories(this->getConfigDir());
@@ -585,7 +585,7 @@ void ProgramConfig::checkOnTop() {
 }
 
 void ProgramConfig::init() {
-    brls::Logger::info("tsvitch {}", APPVersion::instance().git_tag);
+    brls::Logger::info("XuitchTV {}", APPVersion::instance().git_tag);
     tsvitch::initCrashDump();
 
     brls::Application::getWindowSizeChangedEvent()->subscribe([]() { ProgramConfig::instance().checkOnTop(); });
@@ -659,11 +659,11 @@ std::string ProgramConfig::getHomePath() {
 
 std::string ProgramConfig::getConfigDir() {
 #ifdef __SWITCH__
-    return "/config/tsvitch";
+    return "/config/XuitchTV";
 #elif defined(PS4)
-    return "/data/tsvitch";
+    return "/data/XuitchTV";
 #elif defined(__PSV__)
-    return "ux0:/data/tsvitch";
+    return "ux0:/data/XuitchTV";
 #elif defined(IOS)
     CFURLRef homeURL = CFCopyHomeDirectoryURL();
     if (homeURL != nullptr) {
@@ -679,13 +679,13 @@ std::string ProgramConfig::getConfigDir() {
     char currentPathBuffer[PATH_MAX];
     std::string currentPath = getcwd(currentPathBuffer, sizeof(currentPathBuffer));
 #ifdef _WIN32
-    return currentPath + "\\config\\tsvitch";
+    return currentPath + "\\config\\XuitchTV";
 #else
-    return currentPath + "/config/tsvitch";
+    return currentPath + "/config/XuitchTV";
 #endif
 #else
 #ifdef __APPLE__
-    return std::string(getenv("HOME")) + "/Library/Application Support/tsvitch";
+    return std::string(getenv("HOME")) + "/Library/Application Support/XuitchTV";
 #endif
 #ifdef __linux__
     std::string config = "";

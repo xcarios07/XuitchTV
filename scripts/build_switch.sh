@@ -16,8 +16,6 @@ PKGS=(
     "switch-libass-0.17.1-1-any.pkg.tar.zst"
     "switch-ffmpeg-6.1-5-any.pkg.tar.zst"
     "switch-libmpv-0.36.0-2-any.pkg.tar.zst"
-    "switch-nspmini-48d4fc2-1-any.pkg.tar.xz"
-    "hacBrewPack-3.05-1-any.pkg.tar.zst"
 )
 for PKG in "${PKGS[@]}"; do
     [ -f "${PKG}" ] || curl -LO ${BASE_URL}${PKG}
@@ -25,51 +23,29 @@ for PKG in "${PKGS[@]}"; do
 done
 
 
-if [ -z "${GA_ID}" ] || [ -z "${GA_KEY}" ]; then
-    echo "GA_ID or GA_KEY not found in environment"
-    exit 1
-fi
-
-if [ -z "${SERVER_URL}" ]; then
-    echo "SERVER_URL not found in environment"
-    exit 1
-fi
-
-if [ -z "${SERVER_TOKEN}" ]; then
-    echo "SERVER_TOKEN not found in environment"
-    exit 1
-fi
-
-if [ -z "${M3U8_URL}" ]; then
-    echo "M3U8_URL not found in environment"
-    exit 1
-fi
+M3U8_URL="${M3U8_URL:-https://raw.githubusercontent.com/iptv-org/iptv/master/streams/py.m3u}"
 
 # GITHUB_TOKEN is optional but pass it if available
 GITHUB_TOKEN_FLAG=""
-if [ -n "${GITHUB_TOKEN}" ]; then
+if [ -n "${GITHUB_TOKEN:-}" ]; then
     GITHUB_TOKEN_FLAG="-DGITHUB_TOKEN=\"${GITHUB_TOKEN}\""
 fi
 
 # Disable unity build by default for stability on Switch
 # Can be re-enabled with ENABLE_UNITY_BUILD=true environment variable
 UNITY_BUILD_FLAG="-DBRLS_UNITY_BUILD=OFF"
-if [ "${ENABLE_UNITY_BUILD}" = "true" ]; then
+if [ "${ENABLE_UNITY_BUILD:-false}" = "true" ]; then
     UNITY_BUILD_FLAG="-DBRLS_UNITY_BUILD=ON"
 fi
 
 cmake -B ${BUILD_DIR} \
   -DCMAKE_BUILD_TYPE=Release \
-  -DBUILTIN_NSP=ON \
+  -DBUILTIN_NSP=OFF \
   -DPLATFORM_SWITCH=ON \
   ${UNITY_BUILD_FLAG} \
   -DCMAKE_UNITY_BUILD_BATCH_SIZE=16 \
-  -DANALYTICS=ON \
-  -DANALYTICS_ID="${GA_ID}" \
-  -DANALYTICS_KEY="${GA_KEY}" \
-  -DSERVER_URL="${SERVER_URL}" \
-    -DSERVER_TOKEN="${SERVER_TOKEN}" \
+  -DANALYTICS=OFF \
   -DM3U8_URL="${M3U8_URL}" \
   ${GITHUB_TOKEN_FLAG} 
 
-make -C ${BUILD_DIR} TsVitch.nro -j$(nproc)
+make -C ${BUILD_DIR} XuitchTV.nro -j$(nproc)

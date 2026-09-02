@@ -2262,14 +2262,14 @@ void DownloadManager::downloadSimplified(const std::string& id, const std::strin
     }
     
     // Disabilita lo screen dimming durante il download
-    brls::Application::getPlatform()->disableScreenDimming(true, "Download in corso", "TsVitch");
+    brls::Application::getPlatform()->disableScreenDimming(true, "Download in corso", "XuitchTV");
     brls::Logger::info("DownloadManager: Screen dimming disabled for download");
     
     CURL* curl = curl_easy_init();
     if (!curl) {
         brls::Logger::error("DownloadManager: Failed to initialize curl");
         // Riabilita lo screen dimming in caso di errore
-        brls::Application::getPlatform()->disableScreenDimming(false, "Download failed", "TsVitch");
+        brls::Application::getPlatform()->disableScreenDimming(false, "Download failed", "XuitchTV");
         return;
     }
     brls::Logger::info("DownloadManager: Step 2 - CURL initialized");
@@ -2311,7 +2311,7 @@ void DownloadManager::downloadSimplified(const std::string& id, const std::strin
     curl_easy_setopt(curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
     
     // User-Agent più realistico
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4.0 (KHTML, like Gecko) TsVitch/1.0");
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Nintendo Switch; WebApplet) AppleWebKit/609.4.0 (KHTML, like Gecko) XuitchTV/0.1");
     
     // Header aggiuntivi che spesso servono
     struct curl_slist* headers = nullptr;
@@ -2635,7 +2635,7 @@ void DownloadManager::downloadSimplified(const std::string& id, const std::strin
     }
     
     // Riabilita lo screen dimming alla fine del download
-    brls::Application::getPlatform()->disableScreenDimming(false, "Download completato", "TsVitch");
+    brls::Application::getPlatform()->disableScreenDimming(false, "Download completato", "XuitchTV");
     brls::Logger::info("DownloadManager: Screen dimming re-enabled");
     
     // Chiama i callback appropriati fuori dal lock per evitare deadlock
@@ -2775,7 +2775,7 @@ void DownloadManager::downloadCoverImage(const std::string& id, const std::strin
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &imageFile);
     curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; TsVitch/1.0)");
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, "Mozilla/5.0 (compatible; XuitchTV/0.1)");
     curl_easy_setopt(curl, CURLOPT_TIMEOUT, 30L); // Timeout di 30 secondi per le immagini
     curl_easy_setopt(curl, CURLOPT_CONNECTTIMEOUT, 10L); // Timeout di connessione di 10 secondi
     

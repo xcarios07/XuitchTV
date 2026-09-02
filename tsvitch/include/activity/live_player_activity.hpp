@@ -69,6 +69,4 @@ protected:
     std::string currentDownloadId;
     bool hasActiveDownload = false;
 
-private:
-   void getAdUrlFromServer(std::function<void(const std::string&)> callback = nullptr);
 };

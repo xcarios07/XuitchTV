@@ -1,7 +1,7 @@
 {
-  "title": "TsVitch",
-  "github": "https://github.com/giovannimirulla/TsVitch",
-  "github_release": "https://github.com/giovannimirulla/TsVitch/releases/latest",
+  "title": "XuitchTV",
+  "github": "https://github.com/xcarios07/XuitchTV-Next",
+  "github_release": "https://github.com/xcarios07/XuitchTV-Next/releases/latest",
   "setting": {
     "quit_hint": "Stai per uscire dall'applicazione. Le impostazioni avranno effetto dopo il prossimo avvio",
     "app": {
@@ -148,7 +148,7 @@
       "author_header": "Intervento dell'autore",
       "author": "Quanto è bello guardare la TV in bagno",
       "contrib_header": "Contribuzione e Sponsor",
-      "contrib_text": "TsVitch è un progetto open-source: contributi, segnalazioni di bug e suggerimenti sono benvenuti. Se ti piace il progetto e vuoi sostenerlo, valuta di diventare sponsor. Trovi tutte le informazioni e le modalità nel repository GitHub.",
+      "contrib_text": "XuitchTV è open source con licenza GPL-3.0 ed è basato su TsVitch. Riproduce sorgenti M3U e Xtream autorizzate configurate dall'utente.",
       "contributors_header": "Contributori",
       "sponsors_header": "Sponsor",
       "sponsor_qr": "Diventa Sponsor"
@@ -164,7 +164,7 @@
       "font_q1": "Come impostare font o icona personalizzata",
       "font_a1": "1. Scarica il font o l'icona che desideri\n2. Rinomina il font in: font.ttf; Rinomina l'icona in: icon.ttf\n3. Inserisci i file nella cartella di configurazione\n4. Riavvia l'applicazione",
       "font_q2": "Domande frequenti",
-      "font_a2": "1. TsVitch dà priorità ai font personalizzati, con i font integrati come fallback\n2. \"Impostazioni - Strumenti - Altri\" offre una voce di menu per aprire rapidamente la cartella di configurazione\n3. Su Linux, TsVitch usa xdg-open per aprire la cartella. Se la cartella non si apre correttamente, considera di installare questo strumento"
+      "font_a2": "1. XuitchTV dà priorità ai font personalizzati, con i font integrati come fallback\n2. \"Impostazioni - Strumenti - Altri\" offre una voce di menu per aprire rapidamente la cartella di configurazione\n3. Su Linux, XuitchTV usa xdg-open per aprire la cartella. Se la cartella non si apre correttamente, considera di installare questo strumento"
     },
     "hot_keys": {
       "common_header": "Comuni",
@@ -188,8 +188,8 @@
   "hints": {
     "hint1": "Seleziona un gioco dalla schermata home",
     "hint2": "Tieni premuto il tasto  e premi  per entrare in hbmenu",
-    "hint3": "In hbmenu, seleziona TsVitch",
-    "hint4": "Opzionale: usa il forwarder NSP fornito (Metti TsVitch.nro in /switch/TsVitch.nro)",
+    "hint3": "In hbmenu, seleziona XuitchTV",
+    "hint4": "Metti XuitchTV.nro in /switch/XuitchTV/XuitchTV.nro",
     "hint_nsp": "Premi  per installare il forwarder NSP",
     "hint_confirm": "Installare il forwarder NSP può causare un ban\nConfermi?",
     "hint_right": "Le immagini provengono da Internet, il copyright appartiene a Nintendo Co., Ltd"
@@ -289,7 +289,7 @@
       "logout": "Esci dall'account corrente \n(l'app verrà chiusa)",
       "scan": "Scansiona il codice QR per accedere",
       "loading": "Caricamento codice QR...",
-      "hint": "Usa il client TsVitch per scansionare il codice QR",
+      "hint": "Usa XuitchTV per scansionare il codice QR",
       "network_error": "Errore di rete, riprova",
       "qr_not_available": "Codice QR non valido, rientra nella finestra di dialogo",
       "need_confirm": "In attesa di conferma",

@@ -1,159 +1,54 @@
-<p align="center">
-    <img src="resources/icon/icon.png" alt="logo" height="128" width="128"/>
-</p>
-<p align="center">
-  TV finally on Switch
-</p>
+# XuitchTV-Next
 
-- - -
-<div align="center">
-<img src="https://img.shields.io/github/v/release/giovannimirulla/TsVitch"/>
-<img src="https://img.shields.io/endpoint?url=https://giovannimirulla.github.io/TsVitch/downloads.json">
-<img src="https://img.shields.io/github/stars/giovannimirulla/TsVitch?style=flat"/>
-<img src="https://img.shields.io/github/forks/giovannimirulla/TsVitch"/>
-</div>
+XuitchTV-Next is the new Nintendo Switch media-client foundation for XuitchTV.
+It is based on the proven TsVitch v0.3.2 playback stack and keeps the original
+GPL-3.0 license and attribution.
 
+## Current milestone: 0.1.0
 
-<div align="center"><img src="https://img.shields.io/badge/-Nintendo%20Switch-e4000f?style=flat&logo=Nintendo%20Switch"/>
-<img src="https://img.shields.io/badge/-macOS%2010.11+-black?style=flat&logo=Apple">
-</div>
-<br>
+- Nintendo Switch Borealis/libmpv player inherited from TsVitch.
+- User-configurable M3U/M3U8 playlist URL.
+- User-configurable Xtream server, username and password.
+- Channel categories, search, favorites, history and downloads.
+- Direct playback without the original TsVitch registration/advertising server.
+- Analytics disabled.
+- XuitchTV application name, NRO path and icon.
+- Default public source: iptv-org Paraguay playlist.
 
-<div align="center">
-<a href="https://discord.gg/etUeUJXkm3">
-    <img src="https://img.shields.io/badge/Join%20on%20Discord-5865F2?logo=discord&logoColor=white&style=for-the-badge" alt="Join on Discord"/>
-</a>
-</div>
-<br>
-<p align="center">
-<img src="docs/images/screenshot-NX.png" alt="screenshot">
-</p>
-<p align="center">
-<img src="docs/images/screenshot-macOS.png" alt="screenshot">
-</p>
+## Configure a source
 
+Open **Settings → Tools** inside the application. Choose either:
 
-# Introduction
+- **M3U8 Playlist** and enter an authorized M3U/M3U8 URL; or
+- **Xtream Codes** and enter the server URL and credentials supplied by an
+  authorized provider.
 
-This app turns your Nintendo Switch into a powerful multimedia streaming device. With a user-friendly interface and extensive customization options, you can easily access and enjoy your favorite IPTV channels.
+The local configuration is stored under `/config/XuitchTV` on Nintendo Switch.
+Credentials and private playlist URLs are never committed to this repository.
 
-- Access to Your Favorite Content: Supports IPTV playlists in M3U format, enabling streaming of live TV, movies, and on-demand series.
-- Optimized Interface: A clean, intuitive design tailored for Nintendo Switch's touchscreen and Joy-Con controls.
-- Multilanguage Support: Offers subtitles, multiple audio tracks, and language options for a global audience.
+## Nintendo Switch build
 
-<br>
+The GitHub Actions workflow produces both `XuitchTV.nro` and an SD-ready ZIP.
+For a local devkitPro build:
 
-## Default Playlist
-
-The app comes preloaded with a default playlist sourced from the [Free-TV/IPTV repository](https://github.com/Free-TV/IPTV). This repository provides a wide range of free and publicly available IPTV channels.
-
-### Nintendo Switch
-
-
-1. Download TsVitch-NintendoSwitch.zip from: [TsVitch releases](https://github.com/giovannimirulla/TsVitch/releases)
-2. Place TsVitch.nro in the SD card under the switch directory.
-3. On the home screen, hold the R button while opening any game to access hbmenu. From the list, select TsVitch and click to launch.
-4. [Optional] Install a desktop shortcut within the app via: Settings/Utilities/User Guide.
-
-# Clone & Build
-
-```shell
-# Pulling code
-git clone --recursive https://github.com/giovannimirulla/TsVitch.git
-cd TsVitch
-```
-
-### PC
-
-Currently TsVitch is supported on macOS.
-
-<details>
-
-#### macOS
-
-```shell
-# macOS: install dependencies
-brew install mpv webp
-
-cmake -B build -DCPR_USE_SYSTEM_CURL=ON \
-  -DCPR_USE_BOOST_FILESYSTEM=ON \
-  -DCURL_INCLUDE_DIR=/opt/homebrew/opt/curl/include \
-  -DCURL_LIBRARY=/opt/homebrew/opt/curl/lib/libcurl.dylib \
-  -DBOOST_ROOT=/opt/homebrew/opt/boost \
-  -DBoost_NO_SYSTEM_PATHS=ON \
-  -DPLATFORM_DESKTOP=ON
-make -C build TsVitch -j$(sysctl -n hw.ncpu)
-```
-
-</details>
-
-### Cross-compile the Switch executable (TsVitch.nro)
-
-Recommended to use docker build, local build configuration environment is slightly cumbersome, but can be used to switch the underlying ffmpeg or mpv and other dependent libraries for more flexible debugging.
-
-<details>
-
-The following describes the build method under OpenGL. deko3d (better hard solver support) please refer to it: `scripts/build_switch_deko3d.sh`
-
-#### Docker
-
-```shell
-docker run --rm -v $(pwd):/data devkitpro/devkita64:20240202 \
+```bash
+docker run --platform linux/amd64 --rm \
+  -e M3U8_URL="https://raw.githubusercontent.com/iptv-org/iptv/master/streams/py.m3u" \
+  -v "$(pwd):/data" \
+  devkitpro/devkita64:20251117 \
   bash -c "/data/scripts/build_switch.sh"
 ```
 
-#### Compilation 
+Install to:
 
-```shell
-# 1. Install the devkitpro environment: https://github.com/devkitPro/pacman/releases
-
-# 2. Installation of dependencies
-sudo dkp-pacman -S switch-glfw switch-libwebp switch-cmake switch-curl devkitA64
-
-# 3. Installing custom dependencies
-base_url="https://github.com/xfangfang/wilwili/releases/download/v0.1.0"
-sudo dkp-pacman -U \
-    $base_url/switch-ffmpeg-7.1-1-any.pkg.tar.zst \
-    $base_url/switch-libmpv-0.36.0-3-any.pkg.tar.zst
-
-# 4. Build
-cmake -B cmake-build-switch -DPLATFORM_SWITCH=ON
-make -C cmake-build-switch TsVitch.nro -j$(nproc)
+```text
+/switch/XuitchTV/XuitchTV.nro
 ```
 
-</details>
+## Content and licensing
 
-# Disclaimer
-This project is for educational purposes only. The author is not responsible for any damage caused by the use of this project. Please comply with the laws of your country.
+XuitchTV-Next does not host or ship television channels, movies, series,
+accounts or DRM-bypass mechanisms. Use only sources and content you are
+authorized to access.
 
-This app does not host or provide any IPTV content. Users are responsible for ensuring their playlists contain only legal and authorized content.
-
-# Acknowledgement
-
-The development of TsVitch cannot do without the support of the following open source projects.
-
-- Toolchain: devkitpro, switchbrew, vitasdk OpenOrbis and PacBrew
-    - https://github.com/devkitPro
-    - https://github.com/switchbrew/libnx
-    - https://github.com/vitasdk
-    - https://github.com/OpenOrbis
-    - https://github.com/PacBrew
-- UI Library: natinusala and XITRIX
-    - https://github.com/natinusala/borealis
-    - https://github.com/XITRIX/borealis
-- Video Player: Cpasjuste, proconsule fish47 and averne
-    - https://github.com/Cpasjuste/pplay
-    - https://github.com/proconsule/nxmp
-    - https://github.com/fish47/FFmpeg-vita
-    - https://github.com/averne
-- wiliwili
-    - https://github.com/xfangfang/wiliwili
-- Misc
-    - https://github.com/nlohmann/json
-    - https://github.com/nayuki/QR-Code-generator
-    - https://github.com/BYVoid/OpenCC
-    - https://github.com/imageworks/pystring
-    - https://github.com/sammycage/lunasvg
-    - https://chromium.googlesource.com/webm/libwebp
-    - https://github.com/fancycode/MemoryModule
-    - https://github.com/dacap/clip
+See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) and [LICENSE](LICENSE).

@@ -24,8 +24,6 @@
 #include "view/qr_image.hpp"
 #include "view/mpv_core.hpp"
 
-#include "config/server_config.h"
-
 #include "core/FavoriteManager.hpp"
 #include "core/DownloadManager.hpp"
 
@@ -85,14 +83,7 @@ void LiveActivity::onContentAvailable() {
                     this->liveData = channelList[currentChannelIndex];
                     this->video->setTitle(liveData.title);
                     this->video->setFavoriteIcon(FavoriteManager::get()->isFavorite(liveData.url));
-                    this->getAdUrlFromServer([&](const std::string& adUrl) {
-                        brls::Logger::debug("LiveActivity: adUrl: {}", adUrl);
-                        if (!adUrl.empty()) {
-                            this->startAd(adUrl);
-                        } else {
-                            this->startLive();
-                        }
-                    });
+                    this->startLive();
                 } else {
                     //exit live
                     brls::Logger::debug("exit live");
@@ -115,14 +106,7 @@ void LiveActivity::onContentAvailable() {
                     this->liveData = channelList[currentChannelIndex];
                     this->video->setTitle(liveData.title);
                     this->video->setFavoriteIcon(FavoriteManager::get()->isFavorite(liveData.url));
-                    this->getAdUrlFromServer([&](const std::string& adUrl) {
-                        brls::Logger::debug("LiveActivity: adUrl: {}", adUrl);
-                        if (!adUrl.empty()) {
-                            this->startAd(adUrl);
-                        } else {
-                            this->startLive();
-                        }
-                    });
+                    this->startLive();
                 } else {
                     //exit live
                     brls::Logger::debug("exit live");
@@ -144,14 +128,7 @@ void LiveActivity::onContentAvailable() {
     this->video->setStatusLabelLeft("");
     this->video->setFavoriteCallback([this](bool state) { FavoriteManager::get()->toggle(this->liveData); });
 
-    this->getAdUrlFromServer([&](const std::string& adUrl) {
-        brls::Logger::debug("LiveActivity: adUrl: {}", adUrl);
-        if (!adUrl.empty()) {
-            this->startAd(adUrl);
-        } else {
-            this->startLive();
-        }
-    });
+    this->startLive();
 
     GA("open_live", {
         {"title", this->liveData.title},
@@ -444,14 +421,7 @@ void LiveActivity::startDownload() {
 
 void LiveActivity::onLiveData(std::string url) {
     brls::Logger::debug("Live stream url: {}", url);
-    this->getAdUrlFromServer([&](const std::string& adUrl) {
-        brls::Logger::debug("LiveActivity: adUrl: {}", adUrl);
-        if (!adUrl.empty()) {
-            this->video->setUrl(adUrl);
-        } else {
-            this->startLive();
-        }
-    });
+    this->startLive();
     return;
 }
 
@@ -466,23 +436,6 @@ void LiveActivity::retryRequestData() {
     errorDelayIter = brls::delay(2000, [this]() {
         if (!MPVCore::instance().isPlaying()) static_cast<LiveDataRequest*>(this)->requestData(liveData.url);
     });
-}
-
-void LiveActivity::getAdUrlFromServer(std::function<void(const std::string&)> callback) {
-    CLIENT::get_ad(
-        [callback](const std::string& adUrl, int statusCode) {
-            if (statusCode == 200 && !adUrl.empty()) {
-                brls::Logger::debug("LiveActivity: adUrl: {}", adUrl);
-                if (callback) callback(adUrl);
-            } else {
-                brls::Logger::error("LiveActivity: Failed to get ad URL, status code: {}", statusCode);
-                if (callback) callback("");
-            }
-        },
-        [callback](const std::string& error, int statusCode) {
-            brls::Logger::error("LiveActivity: Error getting ad URL: {}, status code: {}", error, statusCode);
-            if (callback) callback("");
-        });
 }
 
 std::string LiveActivity::formatFileSize(size_t bytes) {

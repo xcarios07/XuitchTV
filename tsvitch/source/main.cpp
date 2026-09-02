@@ -82,42 +82,7 @@ int main(int argc, char* argv[]) {
         Intent::openHint();
     }
 
-    //check if user_id is set, if not register a new user
-    if (ProgramConfig::instance().getDeviceID().empty()) {
-        brls::Logger::info("No user ID found, registering a new user...");
-    
-        CLIENT::register_user(
-            [](const std::string& user_id, int status) {
-                if (status == 200) {
-                    brls::Logger::info("Registered new user ID: {}", user_id);
-                } else {
-                    brls::Logger::error("Failed to register user ID: {}", status);
-                }
-            },
-            [](const std::string& error, int status) {
-                brls::Logger::error("Error registering user ID: {} (status: {})", error, status);
-            });
-    } else {
-        brls::Logger::info("User ID already exists: {}", ProgramConfig::instance().getDeviceID());
-
-        CLIENT::check_user_id(
-            [](const std::string& exists, int status) {
-                if (status == 200) {
-                    brls::Logger::info("User ID exists: {}", exists);
-                } else {
-                    brls::Logger::error("Failed to check user ID: {}", status);
-                }
-            },
-            [](const std::string& error, int status) {
-                brls::Logger::error("Error checking user ID: {} (status: {})", error, status);
-            });
-    }
-
-    GA("open_app", {{"version", APPVersion::instance().getVersionStr()},
-                    {"language", brls::Application::getLocale()},
-                    {"window", fmt::format("{}x{}", brls::Application::windowWidth, brls::Application::windowHeight)}})
-
-    APPVersion::instance().checkUpdate();
+    brls::Logger::info("XuitchTV source-driven mode: no registration backend or telemetry");
 
     while (brls::Application::mainLoop()) {
     }

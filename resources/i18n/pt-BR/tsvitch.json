@@ -1,7 +1,7 @@
 {
-  "title": "TsVitch",
-  "github": "https://github.com/giovannimirulla/TsVitch",
-  "github_release": "https://github.com/giovannimirulla/TsVitch/releases/latest",
+  "title": "XuitchTV",
+  "github": "https://github.com/xcarios07/XuitchTV-Next",
+  "github_release": "https://github.com/xcarios07/XuitchTV-Next/releases/latest",
   "setting": {
     "quit_hint": "Você está prestes a sair do aplicativo. As configurações terão efeito após o próximo início",
     "app": {
@@ -147,7 +147,7 @@
       "author_header": "Nota do autor",
       "author": "Como é bom assistir TV no banheiro",
       "contrib_header": "Contribuição e Patrocínio",
-      "contrib_text": "TsVitch é um projeto open-source: contribuições, relatórios de bugs e sugestões são bem-vindos. Se você gosta do projeto e deseja apoiá-lo, considere se tornar um patrocinador. Você encontra todos os detalhes e opções no repositório do GitHub.",
+      "contrib_text": "XuitchTV é open source sob GPL-3.0 e baseado no TsVitch. Reproduz fontes M3U e Xtream autorizadas configuradas pelo usuário.",
       "contributors_header": "Contribuidores",
       "sponsors_header": "Patrocinadores",
       "sponsor_qr": "Torne-se um Patrocinador"
@@ -276,7 +276,7 @@
       "logout": "Sair da conta atual \n(o app será fechado)",
       "scan": "Escaneie o QR code para fazer login",
       "loading": "Carregando QR code...",
-      "hint": "Use o cliente TsVitch para escanear o QR code",
+      "hint": "Use o XuitchTV para escanear o QR code",
       "network_error": "Erro de rede, tente novamente",
       "qr_not_available": "QR code inválido, reabra a janela",
       "need_confirm": "Aguardando confirmação",

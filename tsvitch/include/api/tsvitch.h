@@ -30,16 +30,5 @@ public:
     static void get_live_channels(const std::function<void(LiveM3u8ListResult)>& callback = nullptr,
                                  const ErrorCallback& error                               = nullptr);
 
-    static void register_user(
-                              const std::function<void(const std::string&, int)>& callback = nullptr,
-                              const ErrorCallback& error                                   = nullptr);
-
-    static void check_user_id(
-                              const std::function<void(const std::string&, int)>& callback = nullptr,
-                              const ErrorCallback& error                                   = nullptr);
-
-    static void get_ad(
-                       const std::function<void(const std::string&, int)>& callback = nullptr,
-                       const ErrorCallback& error                                   = nullptr);
 };
 }  // namespace tsvitch

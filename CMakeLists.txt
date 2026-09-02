@@ -29,21 +29,9 @@ option(DEBUG_SANITIZER "Turn on sanitizers (only available in debug build)" OFF)
 # Google Analytics
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/GoogleAnalytics.cmake)
 
-# Server URL
-option(SERVER_URL "URL del server" "")
-if (NOT DEFINED SERVER_URL OR "${SERVER_URL}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_URL not defined")
-else()
-    list(APPEND APP_PLATFORM_OPTION -DSERVER_URL="${SERVER_URL}")
-endif()
-
-# Server Token
-option(SERVER_TOKEN "Token del server" "")
-if (NOT DEFINED SERVER_TOKEN OR "${SERVER_TOKEN}" STREQUAL "")
-    message(FATAL_ERROR "SERVER_TOKEN not defined")
-else()
-    list(APPEND APP_PLATFORM_OPTION -DSERVER_TOKEN="${SERVER_TOKEN}")
-endif()
+# XuitchTV-Next is source-driven and does not require the original project's
+# private registration/advertising backend. M3U and Xtream sources are entered
+# by the user and stay in the local application configuration.
 
 # Default M3U8 URL
 option(M3U8_URL "Default M3U8 URL" "")
@@ -91,29 +79,28 @@ include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/extra.cmake)
 # toolchain
 include(${BOREALIS_LIBRARY}/cmake/toolchain.cmake)
 
-# Git Info
-git_info(GIT_TAG_VERSION GIT_TAG_SHORT)
-list(APPEND APP_PLATFORM_OPTION -DBUILD_TAG_VERSION=${GIT_TAG_VERSION} -DBUILD_TAG_SHORT=${GIT_TAG_SHORT})
-
 # nanovg
 add_definitions(-DFONS_HASH_LUT_SIZE=4096)
 
 # Project Info
-project(TsVitch)
+project(XuitchTV)
 set(VERSION_MAJOR "0")
-set(VERSION_MINOR "3")
-set(VERSION_REVISION "1")
+set(VERSION_MINOR "1")
+set(VERSION_REVISION "0")
 if (NOT VERSION_BUILD)
     set(VERSION_BUILD "0")
 endif ()
-set(PROJECT_AUTHOR "giovannimirulla")
-set(PACKAGE_NAME com.giovannimirulla.tsvitch)
+set(PROJECT_AUTHOR "XuitchTV Project / TsVitch contributors")
+set(PACKAGE_NAME com.xuitchtv.app)
 set(VITA_TITLEID "TSVITCH0")
 set(PSN_TITLE_ID "TVSI00000")
 set(VITA_VERSION "00.21")
 set(PROJECT_ICON ${CMAKE_CURRENT_SOURCE_DIR}/resources/icon/icon.jpg)
 set(PROJECT_RESOURCES ${CMAKE_CURRENT_SOURCE_DIR}/resources)
 set(APP_VERSION "${VERSION_MAJOR}.${VERSION_MINOR}.${VERSION_REVISION}")
+set(GIT_TAG_VERSION "v${APP_VERSION}")
+set(GIT_TAG_SHORT "xuitchtv-next")
+list(APPEND APP_PLATFORM_OPTION -DBUILD_TAG_VERSION=${GIT_TAG_VERSION} -DBUILD_TAG_SHORT=${GIT_TAG_SHORT})
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
 find_package(Threads REQUIRED)
@@ -199,7 +186,7 @@ endif ()
 if (CUSTOM_RESOURCES_DIR)
     set(BRLS_RESOURCES_DIR ${CUSTOM_RESOURCES_DIR})
 elseif (INSTALL)
-    set(BRLS_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/tsvitch)
+    set(BRLS_RESOURCES_DIR ${CMAKE_INSTALL_PREFIX}/share/xuitchtv)
 else ()
     set(BRLS_RESOURCES_DIR ".")
 endif ()
@@ -315,9 +302,6 @@ elseif (PLATFORM_PS4)
     add_dependencies(${PROJECT_NAME} ${PROJECT_NAME}.data)
 elseif (PLATFORM_SWITCH)
     set(BUILD_FONT_DIR ${CMAKE_BINARY_DIR}/resources/font)
-    if (GIT_TAG_VERSION)
-        string(SUBSTRING ${GIT_TAG_VERSION} 1 -1 APP_VERSION)
-    endif ()
     if (BUILTIN_NSP)
         add_dependencies(${PROJECT_NAME} nsp_forwarder.nsp)
     endif ()
