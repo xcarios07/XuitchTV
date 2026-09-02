@@ -16,8 +16,10 @@ public:
 
     CONTENT_FROM_XML_RES("activity/player.xml");
     void onContentAvailable() override;
+    void willAppear(bool resetState) override;
 
 private:
+    void startPlayback();
     void updateStatus();
 
     iptv::IptvChannel channel;
@@ -26,8 +28,10 @@ private:
     brls::Box* videoHost{nullptr};
     brls::Label* titleLabel{nullptr};
     brls::Label* statusLabel{nullptr};
+    brls::Button* playButton{nullptr};
     brls::Button* pauseButton{nullptr};
     brls::Button* stopButton{nullptr};
+    bool started{false};
     bool paused{false};
 };
 

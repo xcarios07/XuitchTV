@@ -24,16 +24,19 @@ void MainActivity::onContentAvailable()
 {
     auto* iptvButton = dynamic_cast<brls::Button*>(getView("main/iptv/button"));
     auto* portalButton = dynamic_cast<brls::Button*>(getView("main/portal/button"));
+    auto* moviesButton = dynamic_cast<brls::Button*>(getView("main/movies/button"));
+    auto* seriesButton = dynamic_cast<brls::Button*>(getView("main/series/button"));
+    auto* sportsButton = dynamic_cast<brls::Button*>(getView("main/sports/button"));
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText("XuitchTV v0.5.7 - IPTV Playlist Test");
+        versionLabel->setText("XuitchTV v0.6.0 - Media Preview");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            iptvLog("XuitchTV v0.5.7 IPTV playlist test", "w");
+            iptvLog("XuitchTV v0.6.0 media preview", "w");
             iptvLog("[01] IPTV button click callback entered");
             iptvLog("[02] before new IptvActivity");
             auto* iptvActivity = new IptvActivity();
@@ -48,6 +51,9 @@ void MainActivity::onContentAvailable()
 
     // The portal API core exists, but its final browsing UI is not ready yet.
     if (portalButton) portalButton->setState(brls::ButtonState::DISABLED);
+    if (moviesButton) moviesButton->setState(brls::ButtonState::DISABLED);
+    if (seriesButton) seriesButton->setState(brls::ButtonState::DISABLED);
+    if (sportsButton) sportsButton->setState(brls::ButtonState::DISABLED);
 }
 
 void MainActivity::onPause()

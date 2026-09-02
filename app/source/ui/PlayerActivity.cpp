@@ -1,13 +1,31 @@
 #include "ui/PlayerActivity.hpp"
 
+#include <cstdio>
+
 #include "ui/VideoView.hpp"
 
 namespace xuitch::ui {
 
+namespace {
+constexpr const char* kPlayerLogPath = "sdmc:/switch/XuitchTV/player.log";
+
+void playerLog(const char* message, const char* mode = "a") {
+    FILE* file = std::fopen(kPlayerLogPath, mode);
+    if (!file) return;
+    std::fprintf(file, "%s\n", message);
+    std::fflush(file);
+    std::fclose(file);
+}
+} // namespace
+
 PlayerActivity::PlayerActivity(iptv::IptvChannel value)
-    : channel(std::move(value)) {}
+    : channel(std::move(value)) {
+    playerLog("XuitchTV v0.6.0 player diagnostic", "w");
+    playerLog("[P01] PlayerActivity constructor completed");
+}
 
 PlayerActivity::~PlayerActivity() {
+    playerLog("[P90] PlayerActivity destructor entered");
     // The Activity base owns/deletes the content tree after our members. Free
     // the mpv render context explicitly while the Player handle is still alive.
     if (videoView) videoView->detachPlayer();
@@ -18,16 +36,18 @@ void PlayerActivity::onContentAvailable() {
     videoHost = dynamic_cast<brls::Box*>(getView("player/video/host"));
     titleLabel = dynamic_cast<brls::Label*>(getView("player/title"));
     statusLabel = dynamic_cast<brls::Label*>(getView("player/status"));
+    playButton = dynamic_cast<brls::Button*>(getView("player/play"));
     pauseButton = dynamic_cast<brls::Button*>(getView("player/pause"));
     stopButton = dynamic_cast<brls::Button*>(getView("player/stop"));
 
-    if (!videoHost || !titleLabel || !statusLabel || !pauseButton || !stopButton) {
+    if (!videoHost || !titleLabel || !statusLabel || !playButton
+        || !pauseButton || !stopButton) {
         brls::Application::crash("XuitchTV Player UI: faltan vistas requeridas.");
         return;
     }
 
     titleLabel->setText(channel.name.empty() ? "Canal IPTV" : channel.name);
-    statusLabel->setText("Inicializando reproductor...");
+    statusLabel->setText("Listo. Pulsa Reproducir para abrir el stream.");
 
     player.setStateCallback([this](player::PlayerState) {
         updateStatus();
@@ -37,23 +57,13 @@ void PlayerActivity::onContentAvailable() {
     videoView->setWidthPercentage(100);
     videoView->setHeightPercentage(100);
     videoHost->addView(videoView);
+    pauseButton->setState(brls::ButtonState::DISABLED);
+    playerLog("[P04] Player UI and VideoView ready - MPV not started");
 
-    if (!player.initialize()) {
-        statusLabel->setText("MPV no disponible: " + player.lastError());
-        pauseButton->setState(brls::ButtonState::DISABLED);
-    } else {
-        const bool attached = videoView->attachPlayer(&player);
-        if (!attached) {
-            statusLabel->setText("MPV listo; backend de video pendiente/no disponible.");
-        }
-        if (player.open(channel.url)) {
-            statusLabel->setText(attached
-                ? "Abriendo stream..."
-                : "Stream enviado a MPV (sin superficie de video disponible)." );
-        } else {
-            statusLabel->setText("Error: " + player.lastError());
-        }
-    }
+    playButton->registerClickAction([this](brls::View*) {
+        startPlayback();
+        return true;
+    });
 
     pauseButton->registerClickAction([this](brls::View*) {
         paused = !paused;
@@ -69,15 +79,52 @@ void PlayerActivity::onContentAvailable() {
 
     stopButton->registerClickAction([this](brls::View*) {
         player.stop();
-        brls::Application::popActivity(brls::TransitionAnimation::SLIDE_RIGHT);
+        brls::Application::popActivity(brls::TransitionAnimation::NONE);
         return true;
     });
 
     registerAction("Volver", brls::BUTTON_B, [this](brls::View*) {
         player.stop();
-        brls::Application::popActivity(brls::TransitionAnimation::SLIDE_RIGHT);
+        brls::Application::popActivity(brls::TransitionAnimation::NONE);
         return true;
     });
+}
+
+void PlayerActivity::willAppear(bool resetState) {
+    playerLog("[P05] PlayerActivity willAppear entered");
+    brls::Activity::willAppear(resetState);
+    playerLog("[P06] PlayerActivity base willAppear returned");
+}
+
+void PlayerActivity::startPlayback() {
+    if (started) return;
+
+    playerLog("[P20] Reproducir clicked - before player.initialize");
+    statusLabel->setText("Inicializando MPV...");
+    if (!player.initialize()) {
+        playerLog("[P21] player.initialize failed");
+        statusLabel->setText("MPV no disponible: " + player.lastError());
+        return;
+    }
+    playerLog("[P21] player.initialize returned success");
+
+    const bool attached = videoView->attachPlayer(&player);
+    playerLog(attached
+        ? "[P22] VideoView attachPlayer returned success"
+        : "[P22] VideoView attachPlayer returned failure");
+
+    if (!player.open(channel.url)) {
+        playerLog("[P23] player.open returned failure");
+        statusLabel->setText("Error: " + player.lastError());
+        return;
+    }
+    playerLog("[P23] player.open returned success");
+    started = true;
+    playButton->setState(brls::ButtonState::DISABLED);
+    pauseButton->setState(brls::ButtonState::ENABLED);
+    statusLabel->setText(attached
+        ? "Abriendo stream..."
+        : "Stream abierto; superficie de video no disponible.");
 }
 
 void PlayerActivity::updateStatus() {

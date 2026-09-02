@@ -23,6 +23,7 @@
                 <brls:Label id="player/title" fontSize="22" text="Canal IPTV" />
                 <brls:Label id="player/status" marginTop="4" fontSize="14" text="Inicializando..." />
             </brls:Box>
+            <brls:Button id="player/play" width="170" marginRight="12" text="Reproducir" />
             <brls:Button id="player/pause" width="150" marginRight="12" text="Pausa" />
             <brls:Button id="player/stop" width="150" text="Salir" />
         </brls:Box>

@@ -5,6 +5,7 @@
 #include <cstdlib>
 
 #include "ui/MainActivity.hpp"
+#include "ui/SplashActivity.hpp"
 
 namespace {
 constexpr const char* kBootLogPath = "sdmc:/switch/XuitchTV/startup.log";
@@ -24,7 +25,7 @@ void resetBootLog()
     FILE* file = std::fopen(kBootLogPath, "w");
     if (!file)
         return;
-    std::fprintf(file, "XuitchTV v0.5.7 IPTV playlist test\n");
+    std::fprintf(file, "XuitchTV v0.6.0 media preview\n");
     std::fflush(file);
     std::fclose(file);
 }
@@ -58,25 +59,34 @@ int main(int argc, char* argv[])
     bootLog("[07] createWindow() OK");
 
     brls::Application::setGlobalQuit(true);
-    bootLog("[08] before MainActivity construction");
-
-    // UI restore test only: no config.json, network, IPTV refresh or MPV startup here.
+    // Keep the main menu as the unpoppable root activity and briefly overlay
+    // the splash. This prevents Back from ever returning to a stale splash.
+    bootLog("[08] before MainActivity root construction");
     auto* mainActivity = new xuitch::ui::MainActivity();
-    bootLog("[09] MainActivity constructed (XML loaded)");
-
     brls::Application::pushActivity(mainActivity, brls::TransitionAnimation::NONE);
-    bootLog("[10] MainActivity pushed");
+    bootLog("[09] MainActivity root pushed");
+
+    auto* splashActivity = new xuitch::ui::SplashActivity();
+    brls::Application::pushActivity(splashActivity, brls::TransitionAnimation::NONE);
+    bootLog("[10] SplashActivity overlay pushed");
+
+    for (unsigned int frame = 0; frame < 75; ++frame) {
+        if (!brls::Application::mainLoop())
+            return EXIT_SUCCESS;
+    }
+    brls::Application::popActivity(brls::TransitionAnimation::NONE);
+    bootLog("[11] splash completed and overlay popped");
 
     unsigned long long frames = 0;
-    bootLog("[11] entering mainLoop()");
+    bootLog("[12] entering mainLoop()");
     while (brls::Application::mainLoop()) {
         ++frames;
         if (frames == 1)
-            bootLog("[12] first UI frame completed");
+            bootLog("[13] first menu frame completed");
         else if (frames == 60)
-            bootLog("[13] 60 UI frames completed - real UI stable");
+            bootLog("[14] 60 menu frames completed - UI stable");
     }
 
-    bootLog("[14] mainLoop exited normally");
+    bootLog("[15] mainLoop exited normally");
     return EXIT_SUCCESS;
 }

@@ -1,58 +1,110 @@
 <brls:AppletFrame
-    backgroundColor="@theme/brls/background"
-    headerHidden="false"
+    backgroundColor="#050814"
+    headerHidden="true"
     footerHidden="false">
-    <brls:Box
-        axis="column"
-        width="100%"
-        height="100%"
-        paddingTop="44"
-        paddingLeft="64"
-        paddingRight="64">
-        <brls:Label fontSize="38" text="XuitchTV" />
-        <brls:Label
-            marginTop="8"
-            fontSize="18"
-            text="TV  |  IPTV  |  Peliculas  |  Series  |  Deportes" />
-
-        <brls:Box axis="row" width="100%" marginTop="40">
-            <brls:Button
-                id="main/iptv/button"
-                width="360"
-                height="90"
-                text="IPTV Paraguay" />
-            <brls:Box axis="column" grow="1" marginLeft="28">
-                <brls:Label fontSize="22" text="Television IPTV" />
-                <brls:Label
-                    marginTop="8"
-                    fontSize="16"
-                    text="Carga dinamicamente la lista publica M3U de Paraguay." />
-                <brls:Label
-                    marginTop="6"
-                    fontSize="15"
-                    text="Categorias, canales y reproduccion MPV desde la misma aplicacion." />
-            </brls:Box>
+    <brls:Box axis="row" width="100%" height="100%">
+        <brls:Box
+            axis="column"
+            width="286"
+            height="100%"
+            backgroundColor="#090F24"
+            paddingTop="34"
+            paddingBottom="24"
+            paddingLeft="24"
+            paddingRight="24">
+            <brls:Image
+                width="224"
+                height="164"
+                scalingType="fit"
+                image="@res/images/xuitchtv_logo_transparent.png" />
+            <brls:Label
+                marginTop="4"
+                marginBottom="20"
+                fontSize="14"
+                textColor="#67D9FF"
+                text="CENTRO MULTIMEDIA" />
+            <brls:Button id="main/iptv/button" height="62" marginBottom="10" text="TV EN VIVO" />
+            <brls:Button id="main/portal/button" height="54" marginBottom="8" text="PORTAL TV" />
+            <brls:Button id="main/movies/button" height="54" marginBottom="8" text="PELICULAS" />
+            <brls:Button id="main/series/button" height="54" marginBottom="8" text="SERIES" />
+            <brls:Button id="main/sports/button" height="54" text="DEPORTES" />
+            <brls:Box grow="1" />
+            <brls:Label id="main/version" fontSize="13" textColor="#7785A8" text="XuitchTV v0.6.0" />
         </brls:Box>
 
-        <brls:Box axis="row" width="100%" marginTop="22">
-            <brls:Button
-                id="main/portal/button"
-                width="360"
-                height="90"
-                text="TV / Portal" />
-            <brls:Box axis="column" grow="1" marginLeft="28">
-                <brls:Label fontSize="22" text="Servicio principal" />
-                <brls:Label
-                    marginTop="8"
-                    fontSize="16"
-                    text="API Live/VOD recuperada; interfaz completa en una fase posterior." />
+        <brls:Box
+            axis="column"
+            grow="1"
+            height="100%"
+            paddingTop="38"
+            paddingBottom="30"
+            paddingLeft="42"
+            paddingRight="42">
+            <brls:Box axis="row" width="100%" height="54" alignItems="center">
+                <brls:Box axis="column" grow="1">
+                    <brls:Label fontSize="30" text="Bienvenido a XuitchTV" />
+                    <brls:Label marginTop="3" fontSize="15" textColor="#91A2C8" text="Tu television en Nintendo Switch" />
+                </brls:Box>
+                <brls:Label fontSize="15" textColor="#55E6B5" text="●  SERVICIO EN LINEA" />
+            </brls:Box>
+
+            <brls:Box
+                axis="column"
+                width="100%"
+                height="250"
+                marginTop="22"
+                backgroundColor="#101B3C"
+                paddingTop="32"
+                paddingBottom="28"
+                paddingLeft="34"
+                paddingRight="34">
+                <brls:Label fontSize="14" textColor="#61D9FF" text="AHORA DISPONIBLE" />
+                <brls:Label marginTop="10" fontSize="34" text="IPTV PARAGUAY" />
+                <brls:Label marginTop="10" fontSize="17" textColor="#B9C4DF" text="Canales publicos organizados por categorias." />
+                <brls:Label marginTop="5" fontSize="15" textColor="#8292B8" text="Actualiza la lista y selecciona un canal para abrir el reproductor." />
+                <brls:Label marginTop="22" fontSize="15" textColor="#FF5D83" text="Pulsa TV EN VIVO para comenzar  ›" />
+            </brls:Box>
+
+            <brls:Box axis="row" width="100%" grow="1" marginTop="22">
+                <brls:Box
+                    axis="column"
+                    grow="1"
+                    height="100%"
+                    marginRight="14"
+                    backgroundColor="#0B132C"
+                    paddingTop="24"
+                    paddingLeft="22"
+                    paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#50D7FF" text="TV" />
+                    <brls:Label marginTop="15" fontSize="18" text="Lista en vivo" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Navega canales y categorias de Paraguay." />
+                </brls:Box>
+                <brls:Box
+                    axis="column"
+                    grow="1"
+                    height="100%"
+                    marginRight="14"
+                    backgroundColor="#0B132C"
+                    paddingTop="24"
+                    paddingLeft="22"
+                    paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#F35182" text="VOD" />
+                    <brls:Label marginTop="15" fontSize="18" text="Peliculas y series" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Seccion preparada para una proxima version." />
+                </brls:Box>
+                <brls:Box
+                    axis="column"
+                    grow="1"
+                    height="100%"
+                    backgroundColor="#0B132C"
+                    paddingTop="24"
+                    paddingLeft="22"
+                    paddingRight="18">
+                    <brls:Label fontSize="24" textColor="#FF9C46" text="SPORT" />
+                    <brls:Label marginTop="15" fontSize="18" text="Deportes" />
+                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Acceso reservado para la siguiente etapa." />
+                </brls:Box>
             </brls:Box>
         </brls:Box>
-
-        <brls:Label
-            id="main/version"
-            marginTop="34"
-            fontSize="15"
-            text="XuitchTV - First Hardware Preview" />
     </brls:Box>
 </brls:AppletFrame>

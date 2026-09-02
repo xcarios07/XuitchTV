@@ -1,0 +1,10 @@
+<brls:AppletFrame
+    backgroundColor="#030610"
+    headerHidden="true"
+    footerHidden="true">
+    <brls:Image
+        width="100%"
+        height="100%"
+        scalingType="fill"
+        image="@res/images/splash.png" />
+</brls:AppletFrame>

@@ -6,6 +6,7 @@
 #include "api/HttpClient.hpp"
 #include "core/BuildInfo.hpp"
 #include "iptv/IptvService.hpp"
+#include "ui/PlayerActivity.hpp"
 
 namespace xuitch::ui {
 
@@ -68,7 +69,7 @@ void IptvActivity::onContentAvailable()
         return true;
     });
 
-    statusLabel->setText("v0.5.7: pulsa Actualizar para cargar IPTV Paraguay.");
+    statusLabel->setText("Pulsa Actualizar para cargar IPTV Paraguay.");
     countLabel->setText("0 canales");
     iptvLog("[18] IPTV shell ready - waiting for manual refresh");
 }
@@ -130,7 +131,7 @@ void IptvActivity::refreshPlaylist()
 
     std::ostringstream text;
     text << "Lista cargada: " << playlist.channels.size()
-         << " canales. Reproductor aun desactivado.";
+         << " canales. Selecciona uno para abrir el reproductor.";
     setStatus(text.str());
     brls::Application::notify("IPTV Paraguay cargado");
     iptvLog("[41] refreshPlaylist completed");
@@ -182,12 +183,14 @@ void IptvActivity::renderChannels()
         button->setText(text);
         button->setMarginBottom(8);
 
-        const std::string selectedName = channel->name;
-        button->registerClickAction([this, selectedName](brls::View*) {
-            iptvLog("[60] channel selected - player disabled: " + selectedName);
-            setStatus("Canal seleccionado: " + selectedName
-                + ". Reproductor disponible en la siguiente etapa.");
-            brls::Application::notify("Player desactivado en v0.5.7");
+        const iptv::IptvChannel selected = *channel;
+        button->registerClickAction([selected](brls::View*) {
+            iptvLog("[60] channel selected: " + selected.name);
+            auto* playerActivity = new PlayerActivity(selected);
+            iptvLog("[61] PlayerActivity constructed");
+            brls::Application::pushActivity(playerActivity,
+                brls::TransitionAnimation::NONE);
+            iptvLog("[62] PlayerActivity pushed");
             return true;
         });
         channelBox->addView(button);

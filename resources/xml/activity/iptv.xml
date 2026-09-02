@@ -1,34 +1,52 @@
 <brls:AppletFrame
-    backgroundColor="@theme/brls/background"
+    backgroundColor="#050814"
     headerHidden="false"
     footerHidden="false">
     <brls:Box
         axis="column"
         width="100%"
         height="100%"
-        paddingTop="28"
+        backgroundColor="#050814"
+        paddingTop="24"
         paddingBottom="22"
         paddingLeft="46"
         paddingRight="46">
         <brls:Box axis="row" width="100%" height="64" alignItems="center">
             <brls:Box axis="column" grow="1">
-                <brls:Label fontSize="32" text="IPTV Paraguay" />
-                <brls:Label id="iptv/status" marginTop="4" fontSize="15" text="Listo" />
+                <brls:Label fontSize="31" text="TV EN VIVO" />
+                <brls:Label id="iptv/status" marginTop="4" fontSize="15" textColor="#91A2C8" text="Listo" />
             </brls:Box>
-            <brls:Label id="iptv/count" width="130" fontSize="16" text="0 canales" />
+            <brls:Label id="iptv/count" width="140" fontSize="16" textColor="#55E6B5" text="0 canales" />
             <brls:Button id="iptv/refresh" width="190" text="Actualizar" />
         </brls:Box>
 
         <brls:Box axis="row" width="100%" grow="1" marginTop="20">
-            <brls:Box axis="column" width="300" height="100%" marginRight="22">
-                <brls:Label fontSize="19" text="Categorias" marginBottom="10" />
+            <brls:Box
+                axis="column"
+                width="300"
+                height="100%"
+                marginRight="22"
+                backgroundColor="#090F24"
+                paddingTop="18"
+                paddingBottom="18"
+                paddingLeft="16"
+                paddingRight="16">
+                <brls:Label fontSize="19" textColor="#61D9FF" text="CATEGORIAS" marginBottom="12" />
                 <brls:ScrollingFrame grow="1" scrollingBehavior="natural">
                     <brls:Box id="iptv/categories" axis="column" width="100%" />
                 </brls:ScrollingFrame>
             </brls:Box>
 
-            <brls:Box axis="column" grow="1" height="100%">
-                <brls:Label fontSize="19" text="Canales" marginBottom="10" />
+            <brls:Box
+                axis="column"
+                grow="1"
+                height="100%"
+                backgroundColor="#0B132C"
+                paddingTop="18"
+                paddingBottom="18"
+                paddingLeft="18"
+                paddingRight="18">
+                <brls:Label fontSize="19" textColor="#F35182" text="LISTA DE CANALES" marginBottom="12" />
                 <brls:ScrollingFrame grow="1" scrollingBehavior="natural">
                     <brls:Box id="iptv/channels" axis="column" width="100%" />
                 </brls:ScrollingFrame>
