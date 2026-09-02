@@ -4,7 +4,11 @@ XuitchTV-Next is the new Nintendo Switch media-client foundation for XuitchTV.
 It is based on the proven TsVitch v0.3.2 playback stack and keeps the original
 GPL-3.0 license and attribution.
 
-## Current milestone: 0.1.0
+## Current milestone: 0.8.0-beta.1
+
+This beta lives on the `codex/xuitchtv-next` branch of the existing XuitchTV
+repository. The previous implementation remains available on `main` while the
+new TsVitch-based playback foundation is validated on Nintendo Switch hardware.
 
 - Nintendo Switch Borealis/libmpv player inherited from TsVitch.
 - User-configurable M3U/M3U8 playlist URL.

@@ -85,7 +85,7 @@ add_definitions(-DFONS_HASH_LUT_SIZE=4096)
 # Project Info
 project(XuitchTV)
 set(VERSION_MAJOR "0")
-set(VERSION_MINOR "1")
+set(VERSION_MINOR "8")
 set(VERSION_REVISION "0")
 if (NOT VERSION_BUILD)
     set(VERSION_BUILD "0")
