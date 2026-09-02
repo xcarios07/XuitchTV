@@ -30,13 +30,13 @@ void MainActivity::onContentAvailable()
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText("XuitchTV v0.6.1 - OpenGL Player Preview");
+        versionLabel->setText("XuitchTV v0.6.2 - Stream Headers Preview");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            iptvLog("XuitchTV v0.6.1 OpenGL player preview", "w");
+            iptvLog("XuitchTV v0.6.2 stream headers preview", "w");
             iptvLog("[01] IPTV button click callback entered");
             iptvLog("[02] before new IptvActivity");
             auto* iptvActivity = new IptvActivity();

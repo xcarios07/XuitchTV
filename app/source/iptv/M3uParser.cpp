@@ -80,6 +80,17 @@ bool M3uParser::parse(const std::string& text,
             continue;
         }
 
+        constexpr const char* referrerPrefix = "#EXTVLCOPT:http-referrer=";
+        constexpr const char* userAgentPrefix = "#EXTVLCOPT:http-user-agent=";
+        if (hasPending && line.rfind(referrerPrefix, 0) == 0) {
+            pending.httpReferrer = trim(line.substr(std::char_traits<char>::length(referrerPrefix)));
+            continue;
+        }
+        if (hasPending && line.rfind(userAgentPrefix, 0) == 0) {
+            pending.httpUserAgent = trim(line.substr(std::char_traits<char>::length(userAgentPrefix)));
+            continue;
+        }
+
         if (line[0] == '#') continue;
         if (!hasPending || !isHttpUrl(line)) continue;
 

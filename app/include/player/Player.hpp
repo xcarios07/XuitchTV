@@ -18,7 +18,8 @@ public:
     Player(const Player&) = delete;
     Player& operator=(const Player&) = delete;
 
-    bool initialize();
+    bool initialize(const std::string& referrer = {},
+                    const std::string& userAgent = {});
     bool open(const std::string& url);
     bool setPaused(bool paused);
     void stop();

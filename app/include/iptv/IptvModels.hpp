@@ -20,6 +20,8 @@ struct IptvChannel {
     std::string groupTitle;
     std::string language;
     std::string country;
+    std::string httpReferrer;
+    std::string httpUserAgent;
     StreamHealth health{StreamHealth::Unknown};
 };
 

@@ -53,7 +53,8 @@ void* Player::nativeHandle() const {
 #endif
 }
 
-bool Player::initialize() {
+bool Player::initialize(const std::string& referrer,
+                        const std::string& userAgent) {
     errorText.clear();
 #if XUITCHTV_HAS_MPV
     if (impl->handle) return true;
@@ -76,7 +77,11 @@ bool Player::initialize() {
     mpv_set_option_string(impl->handle, "ytdl", "no");
     mpv_set_option_string(impl->handle, "audio-channels", "auto-safe");
     mpv_set_option_string(impl->handle, "video-timing-offset", "0");
-    mpv_set_option_string(impl->handle, "user-agent", core::userAgent().c_str());
+    const std::string effectiveUserAgent = userAgent.empty()
+        ? core::userAgent() : userAgent;
+    mpv_set_option_string(impl->handle, "user-agent", effectiveUserAgent.c_str());
+    if (!referrer.empty())
+        mpv_set_option_string(impl->handle, "referrer", referrer.c_str());
 
 #if defined(__SWITCH__)
     // These settings mirror the proven Switch/libmpv path used by current
@@ -100,6 +105,8 @@ bool Player::initialize() {
     }
     return true;
 #else
+    (void)referrer;
+    (void)userAgent;
     errorText = "MPV backend was not available at build time";
     setState(PlayerState::Error);
     return false;

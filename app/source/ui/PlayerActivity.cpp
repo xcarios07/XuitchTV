@@ -36,7 +36,7 @@ const char* stateName(player::PlayerState state) {
 
 PlayerActivity::PlayerActivity(iptv::IptvChannel value)
     : channel(std::move(value)) {
-    playerLog("XuitchTV v0.6.1 OpenGL player diagnostic", "w");
+    playerLog("XuitchTV v0.6.2 HTTP headers player diagnostic", "w");
     playerLog("[P01] PlayerActivity constructor completed");
 }
 
@@ -116,8 +116,11 @@ void PlayerActivity::startPlayback() {
     if (started) return;
 
     playerLog("[P20] Reproducir clicked - before player.initialize");
+    playerLog(std::string("[P19] network metadata referrer=")
+        + (channel.httpReferrer.empty() ? "no" : "yes")
+        + " user-agent=" + (channel.httpUserAgent.empty() ? "default" : "playlist"));
     statusLabel->setText("Inicializando MPV...");
-    if (!player.initialize()) {
+    if (!player.initialize(channel.httpReferrer, channel.httpUserAgent)) {
         playerLog("[P21] player.initialize failed");
         statusLabel->setText("MPV no disponible: " + player.lastError());
         return;

@@ -43,7 +43,7 @@ assert 'mpv_render_context_render' in video
 
 main = (root / 'app/source/ui/MainActivity.cpp').read_text(encoding='utf-8')
 assert 'new IptvActivity()' in main
-assert 'XuitchTV v0.6.1 - OpenGL Player Preview' in main
+assert 'XuitchTV v0.6.2 - Stream Headers Preview' in main
 assert 'brls::TransitionAnimation::NONE' in main
 assert 'brls::TransitionAnimation::SLIDE_LEFT' not in main
 for checkpoint in ('[01]', '[02]', '[03]', '[04]', '[05]'):
@@ -59,15 +59,15 @@ iptv = (root / 'app/source/ui/IptvActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]', '[20]', '[21]', '[22]', '[23]', '[30]', '[31]', '[32]', '[33]', '[34]', '[35]', '[36]', '[37]', '[38]', '[39]', '[40]', '[41]'):
     assert checkpoint in iptv, f'{checkpoint} missing from IptvActivity diagnostic log'
 for required in ('api::HttpClient http', 'iptv::IptvService service(http)', 'service.refresh(', 'renderCategories()', 'renderChannels()', 'new PlayerActivity', 'makeChannelCard', 'images/channels/'):
-    assert required in iptv, f'{required} missing from v0.6.1 media preview'
+    assert required in iptv, f'{required} missing from v0.6.2 media preview'
 for forbidden in ('AppConfig::', 'SLIDE_LEFT'):
-    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.6.1 media preview'
+    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.6.2 media preview'
 
 player = (root / 'app/source/ui/PlayerActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[P01]', '[P04]', '[P05]', '[P06]', '[P20]', '[P21]', '[P22]', '[P23]', '[P90]'):
     assert checkpoint in player, f'{checkpoint} missing from PlayerActivity diagnostic log'
 assert 'startPlayback()' in player
-assert 'player.initialize()' in player
+assert 'player.initialize(channel.httpReferrer, channel.httpUserAgent)' in player
 assert 'TransitionAnimation::SLIDE_RIGHT' not in player
 
 video = (root / 'app/source/ui/VideoView.cpp').read_text(encoding='utf-8')
@@ -82,5 +82,5 @@ assert 'new xuitch::ui::SplashActivity()' in boot
 assert 'frame < 75' in boot
 assert boot.index('new xuitch::ui::MainActivity()') < boot.index('new xuitch::ui::SplashActivity()')
 assert 'popActivity(brls::TransitionAnimation::NONE)' in boot
-print('v0.6.1 OpenGL player preview contract test: OK')
+print('v0.6.2 stream headers player contract test: OK')
 PY
