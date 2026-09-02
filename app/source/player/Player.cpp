@@ -82,10 +82,12 @@ bool Player::initialize() {
     // These settings mirror the proven Switch/libmpv path used by current
     // native media clients. hwdec=auto falls back to software decode if the
     // stream/codec cannot use the hardware backend.
-    mpv_set_option_string(impl->handle, "vd-lavc-dr", "yes");
-    mpv_set_option_string(impl->handle, "vd-lavc-threads", "3");
+    mpv_set_option_string(impl->handle, "vd-lavc-dr", "no");
+    mpv_set_option_string(impl->handle, "vd-lavc-threads", "4");
     mpv_set_option_string(impl->handle, "hwdec", "auto");
     mpv_set_option_string(impl->handle, "opengl-glfinish", "yes");
+    mpv_set_option_string(impl->handle, "demuxer-lavf-analyzeduration", "0.4");
+    mpv_set_option_string(impl->handle, "demuxer-lavf-probescore", "24");
 #endif
 
     const int rc = mpv_initialize(impl->handle);

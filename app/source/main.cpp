@@ -25,7 +25,7 @@ void resetBootLog()
     FILE* file = std::fopen(kBootLogPath, "w");
     if (!file)
         return;
-    std::fprintf(file, "XuitchTV v0.6.0 media preview\n");
+    std::fprintf(file, "XuitchTV v0.6.1 OpenGL player preview\n");
     std::fflush(file);
     std::fclose(file);
 }

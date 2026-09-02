@@ -1,6 +1,7 @@
 #include "ui/IptvActivity.hpp"
 
 #include <cstdio>
+#include <cctype>
 #include <sstream>
 
 #include "api/HttpClient.hpp"
@@ -36,6 +37,78 @@ void logView(const char* checkpoint, const void* view)
     std::snprintf(message, sizeof(message), "%s - %s", checkpoint,
         view ? "found" : "MISSING");
     iptvLog(message);
+}
+
+std::string logoResourcePath(std::string tvgId)
+{
+    const std::string suffix = "@SD";
+    if (tvgId.size() >= suffix.size()
+        && tvgId.compare(tvgId.size() - suffix.size(), suffix.size(), suffix) == 0) {
+        tvgId.erase(tvgId.size() - suffix.size());
+    }
+
+    // The current public catalog has no usable Unicanal raster logo.
+    if (tvgId == "Unicanal.py" || tvgId.empty())
+        return "images/xuitchtv_logo_transparent.png";
+
+    for (char& value : tvgId) {
+        const auto byte = static_cast<unsigned char>(value);
+        if (!std::isalnum(byte) && value != '_' && value != '-')
+            value = '_';
+    }
+    return "images/channels/" + tvgId + ".png";
+}
+
+brls::Box* makeChannelCard(const iptv::IptvChannel& selected, bool rightMargin)
+{
+    auto* card = new brls::Box(brls::Axis::ROW);
+    card->setWidthPercentage(49);
+    card->setHeight(118);
+    if (rightMargin) card->setMarginRight(14);
+    card->setPadding(10);
+    card->setAlignItems(brls::AlignItems::CENTER);
+    card->setBackgroundColor(nvgRGB(255, 255, 255));
+    card->setCornerRadius(10);
+    card->setFocusable(true);
+    card->setHideHighlightBackground(false);
+
+    auto* logo = new brls::Image();
+    logo->setWidth(142);
+    logo->setHeight(88);
+    logo->setScalingType(brls::ImageScalingType::FIT);
+    logo->setImageFromRes(logoResourcePath(selected.tvgId));
+    logo->setMarginRight(14);
+    card->addView(logo);
+
+    auto* details = new brls::Box(brls::Axis::COLUMN);
+    details->setGrow(1);
+
+    auto* name = new brls::Label();
+    name->setText(selected.name.empty() ? "Canal IPTV" : selected.name);
+    name->setFontSize(17);
+    name->setTextColor(nvgRGB(25, 31, 43));
+    details->addView(name);
+
+    auto* country = new brls::Label();
+    country->setText(selected.groupTitle.empty()
+        ? "Paraguay  ·  IPTV publico"
+        : selected.groupTitle);
+    country->setFontSize(13);
+    country->setTextColor(nvgRGB(237, 113, 18));
+    country->setMarginTop(7);
+    details->addView(country);
+    card->addView(details);
+
+    card->registerClickAction([selected](brls::View*) {
+        iptvLog("[60] channel selected: " + selected.name);
+        auto* playerActivity = new PlayerActivity(selected);
+        iptvLog("[61] PlayerActivity constructed");
+        brls::Application::pushActivity(playerActivity,
+            brls::TransitionAnimation::NONE);
+        iptvLog("[62] PlayerActivity pushed");
+        return true;
+    });
+    return card;
 }
 } // namespace
 
@@ -170,30 +243,22 @@ void IptvActivity::renderChannels()
         return;
     }
 
-    for (const auto* channel : channels) {
-        if (!channel)
-            continue;
+    for (std::size_t index = 0; index < channels.size(); index += 2) {
+        auto* row = new brls::Box(brls::Axis::ROW);
+        row->setWidthPercentage(100);
+        row->setMarginBottom(14);
 
-        auto* button = new brls::Button();
-        std::string text = channel->name;
-        if (!channel->groupTitle.empty()
-            && navigator.selectedCategory() == "Todos") {
-            text += "  -  " + channel->groupTitle;
+        if (channels[index])
+            row->addView(makeChannelCard(*channels[index], true));
+
+        if (index + 1 < channels.size() && channels[index + 1]) {
+            row->addView(makeChannelCard(*channels[index + 1], false));
+        } else {
+            auto* spacer = new brls::Box(brls::Axis::COLUMN);
+            spacer->setWidthPercentage(49);
+            row->addView(spacer);
         }
-        button->setText(text);
-        button->setMarginBottom(8);
-
-        const iptv::IptvChannel selected = *channel;
-        button->registerClickAction([selected](brls::View*) {
-            iptvLog("[60] channel selected: " + selected.name);
-            auto* playerActivity = new PlayerActivity(selected);
-            iptvLog("[61] PlayerActivity constructed");
-            brls::Application::pushActivity(playerActivity,
-                brls::TransitionAnimation::NONE);
-            iptvLog("[62] PlayerActivity pushed");
-            return true;
-        });
-        channelBox->addView(button);
+        channelBox->addView(row);
     }
 }
 

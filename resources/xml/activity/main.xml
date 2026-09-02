@@ -29,7 +29,7 @@
             <brls:Button id="main/series/button" height="54" marginBottom="8" text="SERIES" />
             <brls:Button id="main/sports/button" height="54" text="DEPORTES" />
             <brls:Box grow="1" />
-            <brls:Label id="main/version" fontSize="13" textColor="#7785A8" text="XuitchTV v0.6.0" />
+            <brls:Label id="main/version" fontSize="13" textColor="#7785A8" text="XuitchTV v0.6.1" />
         </brls:Box>
 
         <brls:Box

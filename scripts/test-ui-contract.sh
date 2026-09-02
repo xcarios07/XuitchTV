@@ -43,7 +43,7 @@ assert 'mpv_render_context_render' in video
 
 main = (root / 'app/source/ui/MainActivity.cpp').read_text(encoding='utf-8')
 assert 'new IptvActivity()' in main
-assert 'XuitchTV v0.6.0 - Media Preview' in main
+assert 'XuitchTV v0.6.1 - OpenGL Player Preview' in main
 assert 'brls::TransitionAnimation::NONE' in main
 assert 'brls::TransitionAnimation::SLIDE_LEFT' not in main
 for checkpoint in ('[01]', '[02]', '[03]', '[04]', '[05]'):
@@ -58,10 +58,10 @@ assert 'IptvPlaylist' in iptv_header
 iptv = (root / 'app/source/ui/IptvActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]', '[20]', '[21]', '[22]', '[23]', '[30]', '[31]', '[32]', '[33]', '[34]', '[35]', '[36]', '[37]', '[38]', '[39]', '[40]', '[41]'):
     assert checkpoint in iptv, f'{checkpoint} missing from IptvActivity diagnostic log'
-for required in ('api::HttpClient http', 'iptv::IptvService service(http)', 'service.refresh(', 'renderCategories()', 'renderChannels()', 'new PlayerActivity'):
-    assert required in iptv, f'{required} missing from v0.6.0 media preview'
+for required in ('api::HttpClient http', 'iptv::IptvService service(http)', 'service.refresh(', 'renderCategories()', 'renderChannels()', 'new PlayerActivity', 'makeChannelCard', 'images/channels/'):
+    assert required in iptv, f'{required} missing from v0.6.1 media preview'
 for forbidden in ('AppConfig::', 'SLIDE_LEFT'):
-    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.6.0 media preview'
+    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.6.1 media preview'
 
 player = (root / 'app/source/ui/PlayerActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[P01]', '[P04]', '[P05]', '[P06]', '[P20]', '[P21]', '[P22]', '[P23]', '[P90]'):
@@ -70,10 +70,17 @@ assert 'startPlayback()' in player
 assert 'player.initialize()' in player
 assert 'TransitionAnimation::SLIDE_RIGHT' not in player
 
+video = (root / 'app/source/ui/VideoView.cpp').read_text(encoding='utf-8')
+for required in ('BOREALIS_USE_OPENGL', 'MPV_RENDER_API_TYPE_OPENGL', 'MPV_RENDER_PARAM_OPENGL_FBO', 'nvglCreateImageFromHandleGL3', 'nvgImagePattern'):
+    assert required in video, f'{required} missing from OpenGL renderer'
+
+logos = list((root / 'resources/images/channels').glob('*.png'))
+assert len(logos) >= 60, f'expected embedded channel logos, found {len(logos)}'
+
 boot = (root / 'app/source/main.cpp').read_text(encoding='utf-8')
 assert 'new xuitch::ui::SplashActivity()' in boot
 assert 'frame < 75' in boot
 assert boot.index('new xuitch::ui::MainActivity()') < boot.index('new xuitch::ui::SplashActivity()')
 assert 'popActivity(brls::TransitionAnimation::NONE)' in boot
-print('v0.6.0 media preview contract test: OK')
+print('v0.6.1 OpenGL player preview contract test: OK')
 PY

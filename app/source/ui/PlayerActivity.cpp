@@ -16,11 +16,27 @@ void playerLog(const char* message, const char* mode = "a") {
     std::fflush(file);
     std::fclose(file);
 }
+
+void playerLog(const std::string& message) {
+    playerLog(message.c_str());
+}
+
+const char* stateName(player::PlayerState state) {
+    switch (state) {
+        case player::PlayerState::Opening: return "Opening";
+        case player::PlayerState::Playing: return "Playing";
+        case player::PlayerState::Paused: return "Paused";
+        case player::PlayerState::Stopped: return "Stopped";
+        case player::PlayerState::Error: return "Error";
+        case player::PlayerState::Idle:
+        default: return "Idle";
+    }
+}
 } // namespace
 
 PlayerActivity::PlayerActivity(iptv::IptvChannel value)
     : channel(std::move(value)) {
-    playerLog("XuitchTV v0.6.0 player diagnostic", "w");
+    playerLog("XuitchTV v0.6.1 OpenGL player diagnostic", "w");
     playerLog("[P01] PlayerActivity constructor completed");
 }
 
@@ -129,6 +145,9 @@ void PlayerActivity::startPlayback() {
 
 void PlayerActivity::updateStatus() {
     if (!statusLabel) return;
+    std::string event = std::string("[P30] state=") + stateName(player.state());
+    if (!player.lastError().empty()) event += " error=" + player.lastError();
+    playerLog(event);
     if (!player.lastError().empty()) {
         statusLabel->setText("Error: " + player.lastError());
         return;
