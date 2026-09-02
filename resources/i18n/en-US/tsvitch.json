@@ -146,7 +146,7 @@
       "brief": "Your media center on Nintendo Switch",
       "repo_header": "Repository",
       "author_header": "Author's note",
-      "author": "XuitchTV is based on the GPL-3.0 TsVitch project and keeps its attribution.",
+      "author": "XuitchTV is open source under GPL-3.0. Upstream attribution is available in Open Source Licenses.",
       "contrib_header": "Contributing & Sponsorship",
       "contrib_text": "XuitchTV is open source under GPL-3.0. It plays user-configured, authorized M3U and Xtream sources and does not include private content or accounts.",
       "contributors_header": "Contributors",
