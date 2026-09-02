@@ -2,7 +2,7 @@
 
 XuitchTV is an experimental native media client for Nintendo Switch homebrew, implemented in C++17 with Borealis, libcurl and libmpv.
 
-## Current version: 0.6.2 — Stream Headers Preview
+## Current version: 0.7.0 — Portal Foundation
 
 The main menu and IPTV navigation are stable on Nintendo Switch hardware. This
 preview adds an original XuitchTV splash screen, a redesigned media-center menu,
@@ -12,6 +12,12 @@ pressing **Reproducir**. Diagnostic checkpoints are written to
 `sdmc:/switch/XuitchTV/iptv.log` and `sdmc:/switch/XuitchTV/player.log`.
 Playlist-provided HTTP referrer and user-agent metadata are preserved and sent
 to libmpv for streams that reject requests without their required headers.
+
+Portal, Movies, Series and Sports now open a configuration/status screen instead
+of remaining disabled. It loads `sdmc:/switch/XuitchTV/config.json` and can test
+whether an explicitly configured authorized portal host is reachable. Login and
+catalog browsing remain intentionally disabled until valid service parameters
+and a verified response schema are available.
 
 The MVP path is now wired end-to-end in source code:
 
@@ -49,6 +55,14 @@ Channels are loaded dynamically; they are not baked into the `.nro`.
 - Reproducible build paths for local devkitPro, Docker and GitHub Actions.
 - SD-card packaging script.
 - Portal/API analysis isolated under `analysis/` for authorized services/content.
+- Portal configuration status and connectivity diagnostic on Nintendo Switch.
+
+## Portal configuration
+
+The SD package includes `config.example.json` but never overwrites
+`config.json` during an update. To prepare an authorized portal, copy the
+example to `sdmc:/switch/XuitchTV/config.json`, then set `portalBaseUrl` and
+`portalCode`. Credentials are not included in the repository or example file.
 
 ## Host tests
 

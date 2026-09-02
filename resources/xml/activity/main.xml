@@ -29,7 +29,7 @@
             <brls:Button id="main/series/button" height="54" marginBottom="8" text="SERIES" />
             <brls:Button id="main/sports/button" height="54" text="DEPORTES" />
             <brls:Box grow="1" />
-            <brls:Label id="main/version" fontSize="13" textColor="#7785A8" text="XuitchTV v0.6.2" />
+            <brls:Label id="main/version" fontSize="13" textColor="#7785A8" text="XuitchTV v0.7.0" />
         </brls:Box>
 
         <brls:Box
@@ -45,7 +45,7 @@
                     <brls:Label fontSize="30" text="Bienvenido a XuitchTV" />
                     <brls:Label marginTop="3" fontSize="15" textColor="#91A2C8" text="Tu television en Nintendo Switch" />
                 </brls:Box>
-                <brls:Label fontSize="15" textColor="#55E6B5" text="●  SERVICIO EN LINEA" />
+                <brls:Label id="main/service/status" fontSize="15" textColor="#55E6B5" text="●  IPTV EN LINEA" />
             </brls:Box>
 
             <brls:Box
@@ -90,7 +90,7 @@
                     paddingRight="18">
                     <brls:Label fontSize="24" textColor="#F35182" text="VOD" />
                     <brls:Label marginTop="15" fontSize="18" text="Peliculas y series" />
-                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Seccion preparada para una proxima version." />
+                    <brls:Label id="main/vod/status" marginTop="8" fontSize="14" textColor="#8494B8" text="Configura tu portal autorizado para continuar." />
                 </brls:Box>
                 <brls:Box
                     axis="column"
@@ -102,7 +102,7 @@
                     paddingRight="18">
                     <brls:Label fontSize="24" textColor="#FF9C46" text="SPORT" />
                     <brls:Label marginTop="15" fontSize="18" text="Deportes" />
-                    <brls:Label marginTop="8" fontSize="14" textColor="#8494B8" text="Acceso reservado para la siguiente etapa." />
+                    <brls:Label id="main/sports/status" marginTop="8" fontSize="14" textColor="#8494B8" text="Disponible al configurar el portal." />
                 </brls:Box>
             </brls:Box>
         </brls:Box>

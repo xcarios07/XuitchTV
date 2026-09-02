@@ -10,6 +10,8 @@ required_files = [
     'app/include/ui/SplashActivity.hpp',
     'app/source/ui/IptvActivity.cpp',
     'app/include/ui/PlayerActivity.hpp',
+    'app/include/ui/PortalActivity.hpp',
+    'app/source/ui/PortalActivity.cpp',
     'app/source/ui/PlayerActivity.cpp',
     'app/include/ui/VideoView.hpp',
     'app/source/ui/VideoView.cpp',
@@ -17,6 +19,7 @@ required_files = [
     'resources/xml/activity/splash.xml',
     'resources/xml/activity/iptv.xml',
     'resources/xml/activity/player.xml',
+    'resources/xml/activity/portal.xml',
     'resources/images/splash.png',
     'resources/images/xuitchtv_logo_transparent.png',
 ]
@@ -29,6 +32,7 @@ checks = {
     'resources/xml/activity/splash.xml': ['images/splash.png'],
     'resources/xml/activity/iptv.xml': ['iptv/refresh', 'iptv/categories', 'iptv/channels', 'iptv/status', 'iptv/count'],
     'resources/xml/activity/player.xml': ['player/video/host', 'player/title', 'player/status', 'player/play', 'player/pause', 'player/stop'],
+    'resources/xml/activity/portal.xml': ['portal/title', 'portal/state', 'portal/host', 'portal/reload', 'portal/probe'],
 }
 for rel, needles in checks.items():
     text = (root / rel).read_text(encoding='utf-8')
@@ -43,7 +47,8 @@ assert 'mpv_render_context_render' in video
 
 main = (root / 'app/source/ui/MainActivity.cpp').read_text(encoding='utf-8')
 assert 'new IptvActivity()' in main
-assert 'XuitchTV v0.6.2 - Stream Headers Preview' in main
+assert 'XuitchTV v0.7.0 - Portal Foundation' in main
+assert 'new PortalActivity' in main
 assert 'brls::TransitionAnimation::NONE' in main
 assert 'brls::TransitionAnimation::SLIDE_LEFT' not in main
 for checkpoint in ('[01]', '[02]', '[03]', '[04]', '[05]'):
@@ -59,9 +64,13 @@ iptv = (root / 'app/source/ui/IptvActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[11]', '[12]', '[13]', '[14]', '[15]', '[16]', '[18]', '[20]', '[21]', '[22]', '[23]', '[30]', '[31]', '[32]', '[33]', '[34]', '[35]', '[36]', '[37]', '[38]', '[39]', '[40]', '[41]'):
     assert checkpoint in iptv, f'{checkpoint} missing from IptvActivity diagnostic log'
 for required in ('api::HttpClient http', 'iptv::IptvService service(http)', 'service.refresh(', 'renderCategories()', 'renderChannels()', 'new PlayerActivity', 'makeChannelCard', 'images/channels/'):
-    assert required in iptv, f'{required} missing from v0.6.2 media preview'
-for forbidden in ('AppConfig::', 'SLIDE_LEFT'):
-    assert forbidden not in iptv, f'{forbidden} must remain disabled in v0.6.2 media preview'
+    assert required in iptv, f'{required} missing from media preview'
+for forbidden in ('SLIDE_LEFT',):
+    assert forbidden not in iptv, f'{forbidden} must remain disabled in media preview'
+
+portal = (root / 'app/source/ui/PortalActivity.cpp').read_text(encoding='utf-8')
+for required in ('ConfigStore::load', 'portalBaseUrl', 'portalCode', 'http.get', 'blockInputs', 'unblockInputs'):
+    assert required in portal, f'{required} missing from portal foundation'
 
 player = (root / 'app/source/ui/PlayerActivity.cpp').read_text(encoding='utf-8')
 for checkpoint in ('[P01]', '[P04]', '[P05]', '[P06]', '[P20]', '[P21]', '[P22]', '[P23]', '[P90]'):
@@ -82,5 +91,5 @@ assert 'new xuitch::ui::SplashActivity()' in boot
 assert 'frame < 75' in boot
 assert boot.index('new xuitch::ui::MainActivity()') < boot.index('new xuitch::ui::SplashActivity()')
 assert 'popActivity(brls::TransitionAnimation::NONE)' in boot
-print('v0.6.2 stream headers player contract test: OK')
+print('v0.7.0 portal foundation UI contract test: OK')
 PY

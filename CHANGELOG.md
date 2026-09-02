@@ -1,5 +1,14 @@
 # XuitchTV changelog
 
+## 0.7.0 — Portal Foundation
+
+- Load the persistent configuration into the application session at startup.
+- Enable Portal, Movies, Series and Sports as configuration/status entry points.
+- Add an on-device portal screen with reload and server-connectivity diagnostics.
+- Keep credentials out of source control and require an explicitly configured authorized host.
+- Package `config.example.json` without overwriting an existing SD-card `config.json`.
+- Update the default Paraguay playlist URL to the current raw iptv-org source.
+
 ## 0.5.1 — First Hardware Preview
 
 - Locked the exact user-approved final 1:1 XuitchTV logo as the project master asset.

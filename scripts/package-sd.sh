@@ -13,7 +13,9 @@ fi
 rm -rf "$DIST/switch" "$DIST/XuitchTV-SD.zip"
 mkdir -p "$APP"
 cp "$NRO" "$APP/XuitchTV.nro"
-cp "$ROOT/config.example.json" "$APP/config.json"
+# Never ship this as config.json: extracting an update must not overwrite a
+# user's portal or IPTV configuration on the SD card.
+cp "$ROOT/config.example.json" "$APP/config.example.json"
 cp "$ROOT/README.md" "$APP/README.txt"
 (
   cd "$DIST"

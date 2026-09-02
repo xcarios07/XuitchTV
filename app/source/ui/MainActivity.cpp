@@ -1,8 +1,11 @@
 #include "ui/MainActivity.hpp"
 
 #include <cstdio>
+#include <string>
 
+#include "core/AppConfig.hpp"
 #include "ui/IptvActivity.hpp"
+#include "ui/PortalActivity.hpp"
 
 namespace xuitch::ui {
 
@@ -30,13 +33,13 @@ void MainActivity::onContentAvailable()
     auto* versionLabel = dynamic_cast<brls::Label*>(getView("main/version"));
 
     if (versionLabel) {
-        versionLabel->setText("XuitchTV v0.6.2 - Stream Headers Preview");
+        versionLabel->setText("XuitchTV v0.7.0 - Portal Foundation");
     }
 
     if (iptvButton) {
         iptvButton->setStyle(&brls::BUTTONSTYLE_PRIMARY);
         iptvButton->registerClickAction([](brls::View*) {
-            iptvLog("XuitchTV v0.6.2 stream headers preview", "w");
+            iptvLog("XuitchTV v0.7.0 portal foundation", "w");
             iptvLog("[01] IPTV button click callback entered");
             iptvLog("[02] before new IptvActivity");
             auto* iptvActivity = new IptvActivity();
@@ -49,11 +52,50 @@ void MainActivity::onContentAvailable()
         });
     }
 
-    // The portal API core exists, but its final browsing UI is not ready yet.
-    if (portalButton) portalButton->setState(brls::ButtonState::DISABLED);
-    if (moviesButton) moviesButton->setState(brls::ButtonState::DISABLED);
-    if (seriesButton) seriesButton->setState(brls::ButtonState::DISABLED);
-    if (sportsButton) sportsButton->setState(brls::ButtonState::DISABLED);
+    const auto openPortalSection = [](const std::string& section) {
+        brls::Application::pushActivity(new PortalActivity(section),
+            brls::TransitionAnimation::NONE);
+    };
+    if (portalButton) {
+        portalButton->registerClickAction([openPortalSection](brls::View*) {
+            openPortalSection("PORTAL TV");
+            return true;
+        });
+    }
+    if (moviesButton) {
+        moviesButton->registerClickAction([openPortalSection](brls::View*) {
+            openPortalSection("PELICULAS");
+            return true;
+        });
+    }
+    if (seriesButton) {
+        seriesButton->registerClickAction([openPortalSection](brls::View*) {
+            openPortalSection("SERIES");
+            return true;
+        });
+    }
+    if (sportsButton) {
+        sportsButton->registerClickAction([openPortalSection](brls::View*) {
+            openPortalSection("DEPORTES");
+            return true;
+        });
+    }
+
+    auto* serviceStatus = dynamic_cast<brls::Label*>(getView("main/service/status"));
+    auto* vodStatus = dynamic_cast<brls::Label*>(getView("main/vod/status"));
+    auto* sportsStatus = dynamic_cast<brls::Label*>(getView("main/sports/status"));
+    const auto& session = core::AppConfig::instance().session();
+    const bool portalConfigured = !session.portalBaseUrl.empty()
+        && !session.portalCode.empty()
+        && session.portalBaseUrl.find("YOUR_AUTHORIZED") == std::string::npos;
+    if (serviceStatus)
+        serviceStatus->setText(portalConfigured ? "●  PORTAL CONFIGURADO" : "●  IPTV EN LINEA");
+    if (vodStatus)
+        vodStatus->setText(portalConfigured
+            ? "Portal listo para validar conexion." : "Configura tu portal autorizado para continuar.");
+    if (sportsStatus)
+        sportsStatus->setText(portalConfigured
+            ? "Portal listo para validar conexion." : "Disponible al configurar el portal.");
 }
 
 void MainActivity::onPause()

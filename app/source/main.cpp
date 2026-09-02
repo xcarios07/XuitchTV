@@ -4,6 +4,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include "core/AppConfig.hpp"
+#include "core/ConfigStore.hpp"
 #include "ui/MainActivity.hpp"
 #include "ui/SplashActivity.hpp"
 
@@ -25,7 +27,7 @@ void resetBootLog()
     FILE* file = std::fopen(kBootLogPath, "w");
     if (!file)
         return;
-    std::fprintf(file, "XuitchTV v0.6.2 HTTP headers player preview\n");
+    std::fprintf(file, "XuitchTV v0.7.0 portal foundation\n");
     std::fflush(file);
     std::fclose(file);
 }
@@ -59,6 +61,15 @@ int main(int argc, char* argv[])
     bootLog("[07] createWindow() OK");
 
     brls::Application::setGlobalQuit(true);
+
+    std::string configError;
+    auto& session = xuitch::core::AppConfig::instance().session();
+    if (xuitch::core::ConfigStore::load(
+            xuitch::core::ConfigStore::defaultPath(), session, &configError)) {
+        bootLog("[07a] config.json loaded");
+    } else {
+        bootLog("[07a] config.json absent or incomplete; defaults retained");
+    }
     // Keep the main menu as the unpoppable root activity and briefly overlay
     // the splash. This prevents Back from ever returning to a stale splash.
     bootLog("[08] before MainActivity root construction");

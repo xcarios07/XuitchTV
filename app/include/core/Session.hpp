@@ -15,7 +15,7 @@ struct Session {
 
     // Independent IPTV source. XuitchTV ships with the public Paraguay
     // playlist URL as a user-replaceable default; no credentials are embedded.
-    std::string iptvPlaylistUrl{"https://iptv-org.github.io/iptv/countries/py.m3u"};
+    std::string iptvPlaylistUrl{"https://raw.githubusercontent.com/iptv-org/iptv/master/streams/py.m3u"};
     std::string iptvEpgUrl;
     bool iptvEnabled{true};
     bool iptvHideUnavailable{false};
